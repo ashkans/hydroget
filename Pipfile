@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 connexion = "==2.6.0"
 python-dateutil = "==2.6.0"
+beautifulsoup4 = "*"
 
 [dev-packages]
 

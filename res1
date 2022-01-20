@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>
+Input Data | Regional Flood Frequency Estimation Model  </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Regional Flood Frequency Estimation Model">
+  <meta name="author" content="Peter Stensmyr">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+  <link rel="stylesheet" href="https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.css" />
+  <!-- <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet"> -->
+  <!-- <link rel="stylesheet" href="static/lib/leaflet-awesome-markers/leaflet.awesome-markers.css"> -->
+  <link href="static/css/leaflet_markers.css" rel="stylesheet">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44570931-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body>
+  <div class="container">
+
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#rffe-navbar">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="./" class="navbar-brand">RFFE</a>
+        </div>
+        <!-- collect for toggling -->
+        <div class="navbar-collapse collapse" id="rffe-navbar">
+          <ul class="nav navbar-nav">
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./limits.html">Limitations</a></li>
+            <li><a href="./publications.html">Publications</a></li>
+            <li><a href="./acknowledgments.html">Acknowledgments</a></li>
+            <li><a href="./changelog.html">Changelog</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text">Logged in as </p></li>
+            <li>
+              <p class="navbar-btn">
+                <a href="http://arr.ga.gov.au" class="btn btn-primary btn-header"><img class="img-btn" src="/static/img/arrlogo.png" alt="ARR Home"></a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="main-body">
+  <div class="jumbotron">
+    <div class="row">
+      <div class="col-md-6">
+        <h2>Regional Flood Frequency Estimation Model</h2>
+        <p>Release Version of the Regional Flood Frequency Estimation Model for
+          the 4th edition of Australian Rainfall and Runoff.</p>
+      </div>
+      <div class="col-md-6">
+        <div class="center-container">
+          <img class="absolute-center" src="static/img/arrlogo450.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Input Data</h3>
+      <p></p>
+        <p class=error>Please correct the errors below.</p>
+      <ul class="nav nav-tabs" id="myTab" roles="tablist">
+        <li class="active"><a href="#basic" role="tab" data-toggle="tab">Basic</a></li>
+        <li class><a href="#advanced" role="tab" data-toggle="tab">Advanced</a></li>
+      </ul>
+      <form role="form" action="" method="post" id="rffa_form">
+        <div id="myTabContent" class="tab-content">
+          <div class="tab-pane active" id="basic">
+            
+  <div class="form-group catchment_name-form">
+
+    <label for="catchment_name">Catchment Name</label>
+
+      <input class="inline form-control" id="catchment_name" name="catchment_name" type="text" value="Catchment1">
+
+  </div>
+
+            
+  <div class="form-group lato-form">
+
+    <label for="lato">Catchment Outlet Latitude</label>
+
+      <input class="inline form-control" id="lato" name="lato" type="text" value="-33.8783">
+
+      <ul class=errors>
+          <li>Coordinates not within a region</li>
+      </ul>
+  </div>
+
+            
+  <div class="form-group lono-form">
+
+    <label for="lono">Catchment Outlet Longitude</label>
+
+      <input class="inline form-control" id="lono" name="lono" type="text" value="150.7683">
+
+      <ul class=errors>
+          <li>Coordinates not within a region</li>
+      </ul>
+  </div>
+
+            
+  <div class="form-group latc-form">
+
+    <label for="latc">Catchment Centroid Latitude</label>
+
+      <input class="inline form-control" id="latc" name="latc" type="text" value="-33.9607">
+
+  </div>
+
+            
+  <div class="form-group lonc-form">
+
+    <label for="lonc">Catchment Centroid Longitude</label>
+
+      <input class="inline form-control" id="lonc" name="lonc" type="text" value="151.752">
+
+  </div>
+
+            
+  <div class="form-group area-form">
+
+    <label for="area">Catchment Area (km²)</label>
+
+      <input class="inline form-control" id="area" name="area" type="text" value="88">
+
+  </div>
+
+          </div>
+          <div class="tab-pane" id="advanced">
+            
+  <div class="form-group region-form">
+
+    <label for="region">Region Name</label>
+
+      <select class="inline form-control" disabled id="region" name="region"><option selected value="0">Automatic</option><option value="1">VIC + NSW + ACT + QLD</option><option value="2">Tasmania</option><option value="3">South Australia</option><option value="4">NT + Kimberley WA</option><option value="5">SW Western Australia</option><option value="6">Pilbara Arid Area</option><option value="7">All Other Arid Areas</option></select>
+      <input id="region-cbox" class="cbox" type="checkbox" name="region" value=0 checked>
+
+  </div>
+
+            
+  <div class="form-group i2_6h-form">
+
+    <label for="i2_6h">50% AEP 6 Hour Rainfall Intensity (mm/h)<br></label>
+
+      <input class="inline form-control" disabled id="i2_6h" name="i2_6h" type="text" value="0">
+      <input id="i2_6h-cbox" class="cbox" type="checkbox" name="i2_6h" value=0 checked>
+
+  </div>
+
+            
+  <div class="form-group i50_6h-form">
+
+    <label for="i50_6h">2% AEP 6 Hour Rainfall Intensity (mm/h)<br></label>
+
+      <input class="inline form-control" disabled id="i50_6h" name="i50_6h" type="text" value="0">
+      <input id="i50_6h-cbox" class="cbox" type="checkbox" name="i50_6h" value=0 checked>
+
+  </div>
+
+          </div>
+        </div>
+        <button type="submit" class="btn btn-default btn-lg" value="Submit">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-9">
+      <div id="map-wrapper">
+        <div id="basicMap"></div>
+        <div id="button-wrapper">
+          <input type="button" value="Zoom to Catchment" class="btn btn-default btn-lg" id="zoomButton">
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <hr>
+    <div class="footer">
+
+      <div class="row">
+        <div class="col-md-5">
+          <p><small>
+            Method by Dr Ataur Rahman and Dr Khaled Haddad from Western Sydney University
+            for the Australian Rainfall and Runoff Project. Full
+            description of the project can be found at the <a href="http://arr.ga.gov.au/revision-projects/project-list/projects/project-5">project page</a> on the ARR website.
+            Send any questions regarding the method or project <a href="/cdn-cgi/l/email-protection#93f2f7fefafdd3f2e1e1bee0fcf5e7e4f2e1f6bdfce1f4">here</a>.
+          </small></p>
+        </div>
+        <div class="col-md-3 text-center">
+          <a href="http://www.engineersaustralia.org.au">
+            <img src="/static/img/ea_logo.png" alt="Engineers Australia">
+          </a>
+        </div>
+        <div class="col-md-4 text-center">
+          <a href="http://www.uws.edu.au">
+            <img src="/static/img/western_sydney_logo.png" alt="Western Sydney University"></li>
+          </a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- load .js files -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/v1.6.4/mapbox.js'></script>
+  <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+  <!-- <script src="static/lib/leaflet-awesome-markers/leaflet.awesome-markers.js"></script> -->
+  <script src="static/js/leaflet-markers.js"></script>
+  <script src="static/js/leaflet-ajax.js"></script>
+  <script src="static/js/leaflet-ellipse/l.ellipse.js"></script>
+  <script src="static/js/util.js"></script>
+  <script src="static/js/mapIndex.js"></script>
+  <!-- <script src="static/lib/openlayers/OpenLayers.js"></script> -->
+  <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/openlayers/2.11/OpenLayers.js"></script> -->
+  <!-- <script src="static/js/mapUtility.js"></script> -->
+  <!-- <script src="static/js/mapInputsForm.js"></script> -->
+  <script src="static/js/app.js"></script>
+
+</body>
+</html>

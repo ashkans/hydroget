@@ -1,0 +1,21 @@
+curl 'https://rffe.arr-software.org/download-json' \
+  -H 'authority: rffe.arr-software.org' \
+  -H 'pragma: no-cache' \
+  -H 'cache-control: no-cache' \
+  -H 'sec-ch-ua: " Not;A Brand";v="99", "Google Chrome";v="97", "Chromium";v="97"' \
+  -H 'sec-ch-ua-mobile: ?0' \
+  -H 'sec-ch-ua-platform: "Windows"' \
+  -H 'upgrade-insecure-requests: 1' \
+  -H 'origin: https://rffe.arr-software.org' \
+  -H 'content-type: application/x-www-form-urlencoded' \
+  -H 'user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/97.0.4692.71 Safari/537.36' \
+  -H 'accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9' \
+  -H 'sec-fetch-site: same-origin' \
+  -H 'sec-fetch-mode: navigate' \
+  -H 'sec-fetch-user: ?1' \
+  -H 'sec-fetch-dest: document' \
+  -H 'referer: https://rffe.arr-software.org/' \
+  -H 'accept-language: en-US,en;q=0.9,fa;q=0.8' \
+  -H 'cookie: _ga=GA1.2.1325615709.1641983802; _gid=GA1.2.296742401.1642419610; _gat=1' \
+  --data-raw 'fpath=%2Fvar%2Fwww%2Freef%2Freef%2Fout%2Fjson%2F9994f8a0-52bc-4424-a638-5011faa608b4.json' \
+  --compressed

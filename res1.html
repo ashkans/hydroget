@@ -1,0 +1,389 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>
+Results | Regional Flood Frequency Estimation Model  </title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <meta name="description" content="Regional Flood Frequency Estimation Model">
+  <meta name="author" content="Peter Stensmyr">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
+  <link href="/static/css/style.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.css" />
+  <link href="static/css/leaflet_markers.css" rel="stylesheet">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-44570931-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</head>
+
+<body>
+  <div class="container">
+
+
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#rffe-navbar">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a href="./" class="navbar-brand">RFFE</a>
+        </div>
+        <!-- collect for toggling -->
+        <div class="navbar-collapse collapse" id="rffe-navbar">
+          <ul class="nav navbar-nav">
+            <li><a href="./about.html">About</a></li>
+            <li><a href="./limits.html">Limitations</a></li>
+            <li><a href="./publications.html">Publications</a></li>
+            <li><a href="./acknowledgments.html">Acknowledgments</a></li>
+            <li><a href="./changelog.html">Changelog</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li><p class="navbar-text">Logged in as </p></li>
+            <li>
+              <p class="navbar-btn">
+                <a href="http://arr.ga.gov.au" class="btn btn-primary btn-header"><img class="img-btn" src="/static/img/arrlogo.png" alt="ARR Home"></a>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="main-body">
+  
+  <h1 class="results-header center">Results | Regional Flood Frequency Estimation Model</h1> 
+  <div class="row">
+    
+    <div class="col-md-8" id="main-results">
+      <div class="row">
+        <div class="col-md-12">
+          <div id="chart"><svg id="results-chart"></svg></div>
+        </div>
+      </div>
+      <div class="row">
+        <div class=" col-md-offset-1 col-md-10">
+
+
+            <p class="warning">
+              *The catchment has unusual shape. Results have lower accuracy and may
+              not be directly applicable in practice.
+            </p>
+
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">           
+          <table class="table table-striped" id="results-table">
+            <thead>
+              <tr>
+                <th>AEP (%)</th>
+                <th>Discharge (m<sup>3</sup>/s)</th>
+                <th>Lower Confidence Limit (5%) (m<sup>3</sup>/s)</th>
+                <th>Upper Confidence Limit (95%) (m<sup>3</sup>/s)</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td>50</td>
+                  <td>13.0</td>
+                  <td>5.20</td>
+                  <td>32.4</td>
+                </tr>
+                <tr>
+                  <td>20</td>
+                  <td>30.2</td>
+                  <td>12.7</td>
+                  <td>71.9</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>47.3</td>
+                  <td>19.9</td>
+                  <td>113</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>68.6</td>
+                  <td>28.4</td>
+                  <td>167</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>105</td>
+                  <td>42.2</td>
+                  <td>263</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>139</td>
+                  <td>54.8</td>
+                  <td>358</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+        <h2 class="body-header">Statistics</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <table class="table table-striped" id="statistics-table">
+              <thead>
+                <tr>
+                  <th>Variable</th>
+                  <th>Value</th>
+                  <th>Standard Dev</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Mean</td>
+                  <td>2.580</td>
+                  <td>0.555</td>
+                </tr>
+                <tr>
+                  <td>Standard Dev</td>
+                  <td>0.990</td>
+                  <td>0.167</td>
+                </tr>
+                <tr>
+                  <td>Skew</td>
+                  <td>0.076</td>
+                  <td>0.027</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="footnote">Note: These statistics come from the nearest gauged catchment. <a href="#">Details</a>.</p>
+          </div>
+
+          <div class="col-md-6">
+            <table class="table table-striped" id="correlations-table">
+              <thead>
+                <tr>
+                  <th colspan=3>Correlation</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>1.000</td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>-0.330</td>
+                  <td>1.000</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>0.170</td>
+                  <td>-0.280</td>
+                  <td>1.000</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="footnote">Note: These statistics are common to each region. <a href="#">Details</a>.</p>
+
+          </div>
+        </div>
+      <h2 class=body-header>1% AEP Flow vs Catchment Area</h2>
+      <div class="row">
+        <div class="col-md-12">
+           <div id="chartAQ"><svg id="results-AQchart"></svg></div>
+        </div>
+      </div>
+      <h2 class=body-header>Shape Factor vs Catchment Area</h2>
+      <div class="row">
+        <div class="col-md-12">
+           <div id="chartAS"><svg id="results-ASchart"></svg></div>
+        </div>
+      </div>
+      <h2 class=body-header>Intensity vs Catchment Area</h2>
+      <div class="row">
+        <div class="col-md-12">
+           <div id="chartAI"><svg id="results-AIchart"></svg></div>
+        </div>
+      </div>
+      <h2 class=body-header>Bias Correction Factor vs Catchment Area</h2>
+      <div class="row">
+        <div class="col-md-12">
+           <div id="chartAB"><svg id="results-ABchart"></svg></div>
+        </div>
+      </div>
+      <h2 class=body-header>Download</h2>
+      <ul class="buttons">
+        <li class="inline">
+          <form class="inline" action="download-txt" role="form" method="post">
+            <button type="submit" value="/var/www/reef/reef/out/txt/043987bd-5905-4c88-839e-b07b5cb26322.txt" name="fpath" class="btn btn-default btn-md">
+              <span class="glyphicon glyphicon-download-alt"></span> TXT
+            </button>
+          </form>
+        </li>
+<!--
+        <li class="inline">
+          <form class="inline" action="download-pdf" role="form" method="post">
+            <button type="submit" disabled=true value="" name="fpath" class="btn btn-default btn-md">
+              <span class="glyphicon glyphicon-file"></span> PDF
+            </button>
+          </form>
+        </li>
+--!>
+        <li class="inline">
+          <form class="inline" action="download-nearby" role="form" method="post">
+            <button type="submit" value="/var/www/reef/reef/out/txt/043987bd-5905-4c88-839e-b07b5cb26322_nearby.txt" name="fpath" class="btn btn-default btn-md">
+              <span class="glyphicon glyphicon-download-alt"></span> Nearby
+            </button>
+          </form>
+        </li>
+        <li class="inline">
+          <form class="inline" action="download-json" role="form" method="post">
+            <button type="submit" value="/var/www/reef/reef/out/json/043987bd-5905-4c88-839e-b07b5cb26322.json" name="fpath" class="btn btn-default btn-md">
+              <span class="glyphicon glyphicon-download-alt"></span> JSON
+            </button>
+          </form>
+        </li>
+      </ul>
+    </div>
+
+    <div class="col-md-4">
+      <table class="table table-striped" id="inputs-table">
+        <thead>
+          <tr>
+            <th colspan="2">Input Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Date/Time</td>
+            <td>2022-01-16 16:13</td>
+          </tr>
+          <tr>
+            <td>Catchment Name</td>
+            <td>Catchment1</td>
+          </tr>
+          <tr>
+            <td>Latitude (Outlet)</td>
+            <td id="lato">-33.8783</td>
+          </tr>
+          <tr>
+            <td>Longitude (Outlet)</td>
+            <td id="lono">150.7683</td>
+          </tr>
+          <tr>
+            <td>Latitude (Centroid)</td>
+            <td id="latc">-33.9607</td>
+          </tr>
+          <tr>
+            <td>Longitude (Centroid)</td>
+            <td id="lonc">149.752</td>
+          </tr>
+          <tr>
+              <td>Catchment Area (km<sup>2</sup>)</td>
+              <td>88.0</td>
+          </tr>
+          <tr>
+              <td>Distance to Nearest Gauged Catchment (km)</td>
+              <td>0.0</td>
+          </tr>
+          <tr>
+            <td>50% AEP 6 Hour Rainfall Intensity (mm/h)</td>
+            <td>5.815863</td>
+          </tr>
+          <tr>
+            <td>2% AEP 6 Hour Rainfall Intensity (mm/h)</td>
+            <td>11.810237</td>
+          </tr>
+          <tr>
+            <td>Rainfall Intensity Source (User/Auto)</td>
+            <td>Auto</td>
+          </tr>
+          <tr>
+            <td>Region</td>
+            <td>East Coast</td>
+          </tr>
+          <tr>
+            <td>Region Version</td>
+            <td>RFFE Model 2016 v1</td>
+          </tr>
+          <tr>
+            <td>Region Source (User/Auto)</td>
+            <td>Auto</td>
+          </tr>
+          <tr>
+              <td class="danger">Shape Factor</td>
+              <td class="danger">10.04*</td>
+          </tr>
+          <tr>
+            <td>Interpolation Method</td>
+              <td>Natural Neighbour</td>
+          </tr>
+          <tr>
+            <td>Bias Correction Value</td>
+                <td>1.382</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="row spacer"></div>
+      <div id="results-map"></div>     
+  </div>
+  </div>
+  </div> <!--end of row -->
+    </div>
+
+    <hr>
+    <div class="footer">
+
+      <div class="row">
+        <div class="col-md-5">
+          <p><small>
+            Method by Dr Ataur Rahman and Dr Khaled Haddad from Western Sydney University
+            for the Australian Rainfall and Runoff Project. Full
+            description of the project can be found at the <a href="http://arr.ga.gov.au/revision-projects/project-list/projects/project-5">project page</a> on the ARR website.
+            Send any questions regarding the method or project <a href="/cdn-cgi/l/email-protection#b7d6d3daded9f7d6c5c59ac4d8d1c3c0d6c5d299d8c5d0">here</a>.
+          </small></p>
+        </div>
+        <div class="col-md-3 text-center">
+          <a href="http://www.engineersaustralia.org.au">
+            <img src="/static/img/ea_logo.png" alt="Engineers Australia">
+          </a>
+        </div>
+        <div class="col-md-4 text-center">
+          <a href="http://www.uws.edu.au">
+            <img src="/static/img/western_sydney_logo.png" alt="Western Sydney University"></li>
+          </a>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- load .js files -->
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.3/leaflet.js"></script>
+  <script src="static/js/leaflet-markers.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.1/nv.d3.js"></script>
+  <script>
+    allCatchmentResults = [{"area": 88.0, "bcf": 1.382, "distance": 0.0, "i2_6h": 7.783, "i50_6h": 17.633, "latc": -33.9607, "lato": -33.8783, "lonc": 150.752, "lono": 150.7683, "lower1": 264.33, "lower10": 91.98, "lower2": 208.01, "lower20": 53.51, "lower5": 137.43, "lower50": 17.32, "mar": 771.0, "q1": 610.69, "q10": 146.72, "q2": 420.37, "q20": 80.82, "q5": 240.52, "q50": 26.01, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 13.03, "lower_limit": 5.2, "upper_limit": 32.38}, {"aep": 5, "flow": 30.22, "lower_limit": 12.67, "upper_limit": 71.9}, {"aep": 10, "flow": 47.28, "lower_limit": 19.86, "upper_limit": 112.57}, {"aep": 20, "flow": 68.62, "lower_limit": 28.37, "upper_limit": 166.61}, {"aep": 50, "flow": 104.83, "lower_limit": 42.18, "upper_limit": 262.74}, {"aep": 100, "flow": 139.29, "lower_limit": 54.76, "upper_limit": 357.64}], "sf": 1.0209, "sflength": 40.0, "station_id": "212320", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.58, "mean_se": 0.5547, "skew": 0.076, "skew_se": 0.0271, "stdev": 0.9895799999999999, "stdev_se": 0.1665}, "upper1": 2550.3, "upper10": 254.9, "upper2": 1309.8, "upper20": 126.8, "upper5": 524.6, "upper50": 39.0}, {"area": 106.0, "bcf": 2.193, "distance": 22.59, "i2_6h": 8.617, "i50_6h": 18.267, "latc": -33.7763, "lato": -33.8133, "lonc": 150.976, "lono": 151.0, "lower1": 768.34, "lower10": 397.92, "lower2": 678.33, "lower20": 270.57, "lower5": 527.24, "lower50": 117.07, "mar": 875.0, "q1": 1545.5, "q10": 612.11, "q2": 1223.21, "q20": 404.42, "q5": 852.5, "q50": 175.58, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 12.8, "lower_limit": 5.43, "upper_limit": 29.92}, {"aep": 5, "flow": 29.68, "lower_limit": 13.18, "upper_limit": 66.7}, {"aep": 10, "flow": 46.47, "lower_limit": 20.74, "upper_limit": 104.28}, {"aep": 20, "flow": 67.51, "lower_limit": 29.75, "upper_limit": 154.03}, {"aep": 50, "flow": 103.3, "lower_limit": 44.53, "upper_limit": 240.78}, {"aep": 100, "flow": 137.43, "lower_limit": 58.23, "upper_limit": 328.12}], "sf": 0.4682, "sflength": 20.0, "station_id": "213004", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.563, "mean_se": 0.5172, "skew": 0.084, "skew_se": 0.0269, "stdev": 0.98846, "stdev_se": 0.1474}, "upper1": 5997.4, "upper10": 1102.9, "upper2": 3689.3, "upper20": 633.4, "upper5": 1880.5, "upper50": 266.1}, {"area": 73.0, "bcf": -0.148, "distance": 32.34, "i2_6h": 12.533, "i50_6h": 30.317, "latc": -34.2033, "lato": -34.1633, "lonc": 150.864, "lono": 150.8383, "lower1": 439.34, "lower10": 241.15, "lower2": 399.83, "lower20": 148.34, "lower5": 322.36, "lower50": 50.47, "mar": 1427.0, "q1": 614.49, "q10": 329.13, "q2": 542.48, "q20": 220.89, "q5": 428.72, "q50": 78.31, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 19.13, "lower_limit": 6.97, "upper_limit": 52.03}, {"aep": 5, "flow": 44.6, "lower_limit": 17.16, "upper_limit": 115.82}, {"aep": 10, "flow": 69.95, "lower_limit": 26.92, "upper_limit": 181.32}, {"aep": 20, "flow": 101.76, "lower_limit": 38.62, "upper_limit": 269.72}, {"aep": 50, "flow": 155.87, "lower_limit": 57.46, "upper_limit": 426.77}, {"aep": 100, "flow": 207.48, "lower_limit": 74.82, "upper_limit": 580.43}], "sf": 0.608, "sflength": 33.0, "station_id": "213200", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.964, "mean_se": 0.6095, "skew": 0.077, "skew_se": 0.0276, "stdev": 0.9951, "stdev_se": 0.1788}, "upper1": 1169.9, "upper10": 456.1, "upper2": 918.2, "upper20": 311.1, "upper5": 626.6, "upper50": 118.9}, {"area": 26.0, "bcf": -0.396, "distance": 51.23, "i2_6h": 7.8, "i50_6h": 16.033, "latc": -33.7163, "lato": -33.73, "lonc": 150.27, "lono": 150.2433, "lower1": 95.9, "lower10": 46.19, "lower2": 82.96, "lower20": 29.35, "lower5": 63.01, "lower50": 10.52, "mar": 1403.0, "q1": 186.51, "q10": 71.6, "q2": 148.0, "q20": 45.1, "q5": 102.11, "q50": 16.79, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 17.09, "lower_limit": 6.61, "upper_limit": 43.85}, {"aep": 5, "flow": 39.55, "lower_limit": 16.12, "upper_limit": 97.06}, {"aep": 10, "flow": 62.1, "lower_limit": 25.33, "upper_limit": 151.86}, {"aep": 20, "flow": 90.66, "lower_limit": 36.47, "upper_limit": 226.62}, {"aep": 50, "flow": 139.85, "lower_limit": 54.74, "upper_limit": 360.59}, {"aep": 100, "flow": 187.34, "lower_limit": 71.6, "upper_limit": 493.91}], "sf": 0.5869, "sflength": 23.0, "station_id": "212013", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.86, "mean_se": 0.5729, "skew": 0.132, "skew_se": 0.0265, "stdev": 0.9793200000000001, "stdev_se": 0.1665}, "upper1": 695.8, "upper10": 127.6, "upper2": 429.0, "upper20": 72.1, "upper5": 219.8, "upper50": 26.6}, {"area": 970.0, "bcf": -0.906, "distance": 54.46, "i2_6h": 6.633, "i50_6h": 13.933, "latc": -33.5458, "lato": -33.7583, "lonc": 150.139, "lono": 150.1967, "lower1": 981.75, "lower10": 228.83, "lower2": 688.23, "lower20": 117.53, "lower5": 386.7, "lower50": 33.37, "mar": 831.0, "q1": 3510.16, "q10": 460.65, "q2": 2012.08, "q20": 212.47, "q5": 904.73, "q50": 55.02, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 13.68, "lower_limit": 5.5, "upper_limit": 33.71}, {"aep": 5, "flow": 31.27, "lower_limit": 13.07, "upper_limit": 74.34}, {"aep": 10, "flow": 48.78, "lower_limit": 20.67, "upper_limit": 114.99}, {"aep": 20, "flow": 70.83, "lower_limit": 30.12, "upper_limit": 166.74}, {"aep": 50, "flow": 108.57, "lower_limit": 46.04, "upper_limit": 256.07}, {"aep": 100, "flow": 144.82, "lower_limit": 60.84, "upper_limit": 345.05}], "sf": 0.8022, "sflength": 29.0, "station_id": "212045", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.637, "mean_se": 0.5486, "skew": 0.131, "skew_se": 0.0264, "stdev": 0.96557, "stdev_se": 0.1024}, "upper1": 27896.4, "upper10": 1152.2, "upper2": 11221.1, "upper20": 409.3, "upper5": 3134.2, "upper50": 89.7}, {"area": 404.0, "bcf": 0.355, "distance": 73.08, "i2_6h": 6.4, "i50_6h": 13.383, "latc": -33.4309, "lato": -33.5367, "lonc": 150.089, "lono": 150.0933, "lower1": 492.27, "lower10": 196.23, "lower2": 410.05, "lower20": 121.84, "lower5": 284.81, "lower50": 37.85, "mar": 766.0, "q1": 946.99, "q10": 286.3, "q2": 700.0, "q20": 167.7, "q5": 439.09, "q50": 57.18, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 18.1, "lower_limit": 7.47, "upper_limit": 43.49}, {"aep": 5, "flow": 46.03, "lower_limit": 19.92, "upper_limit": 106.17}, {"aep": 10, "flow": 75.95, "lower_limit": 32.9, "upper_limit": 175.08}, {"aep": 20, "flow": 115.49, "lower_limit": 49.4, "upper_limit": 271.77}, {"aep": 50, "flow": 186.49, "lower_limit": 77.57, "upper_limit": 452.07}, {"aep": 100, "flow": 257.55, "lower_limit": 104.73, "upper_limit": 638.38}], "sf": 0.604, "sflength": 50.0, "station_id": "212011", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.917, "mean_se": 0.5341, "skew": 0.118, "skew_se": 0.026, "stdev": 1.0917, "stdev_se": 0.1586}, "upper1": 2275.2, "upper10": 419.7, "upper2": 1467.0, "upper20": 246.5, "upper5": 702.2, "upper50": 84.7}, {"area": 67.0, "bcf": 0.957, "distance": 75.14, "i2_6h": 6.983, "i50_6h": 14.483, "latc": -33.4729, "lato": -33.4983, "lonc": 150.162, "lono": 150.0967, "lower1": 199.04, "lower10": 61.19, "lower2": 144.59, "lower20": 38.68, "lower5": 90.41, "lower50": 17.74, "mar": 831.0, "q1": 519.83, "q10": 102.15, "q2": 326.58, "q20": 58.14, "q5": 171.61, "q50": 23.85, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 12.66, "lower_limit": 5.04, "upper_limit": 31.49}, {"aep": 5, "flow": 32.73, "lower_limit": 13.72, "upper_limit": 78.05}, {"aep": 10, "flow": 54.49, "lower_limit": 22.82, "upper_limit": 129.8}, {"aep": 20, "flow": 83.48, "lower_limit": 34.57, "upper_limit": 202.99}, {"aep": 50, "flow": 135.95, "lower_limit": 54.78, "upper_limit": 340.45}, {"aep": 100, "flow": 188.82, "lower_limit": 74.26, "upper_limit": 483.89}], "sf": 0.842, "sflength": 27.0, "station_id": "212042", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.56, "mean_se": 0.5551, "skew": 0.117, "skew_se": 0.026, "stdev": 1.1116, "stdev_se": 0.1634}, "upper1": 2373.3, "upper10": 201.3, "upper2": 1140.3, "upper20": 94.5, "upper5": 430.9, "upper50": 32.9}, {"area": 112.0, "bcf": -1.117, "distance": 77.84, "i2_6h": 6.4, "i50_6h": 13.233, "latc": -33.8205, "lato": -33.75, "lonc": 149.904, "lono": 149.94, "lower1": 73.78, "lower10": 28.31, "lower2": 59.05, "lower20": 17.74, "lower5": 40.61, "lower50": 7.08, "mar": 1124.17, "q1": 183.53, "q10": 47.18, "q2": 127.28, "q20": 27.59, "q5": 74.65, "q50": 10.47, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 16.79, "lower_limit": 6.78, "upper_limit": 41.25}, {"aep": 5, "flow": 41.39, "lower_limit": 17.59, "upper_limit": 97.32}, {"aep": 10, "flow": 66.98, "lower_limit": 28.38, "upper_limit": 159.06}, {"aep": 20, "flow": 100.11, "lower_limit": 41.89, "upper_limit": 241.86}, {"aep": 50, "flow": 158.28, "lower_limit": 63.88, "upper_limit": 396.19}, {"aep": 100, "flow": 215.34, "lower_limit": 84.21, "upper_limit": 557.3}], "sf": 0.8299, "sflength": 25.0, "station_id": "421036", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.837, "mean_se": 0.5474, "skew": 0.094, "skew_se": 0.0265, "stdev": 1.0584, "stdev_se": 0.1752}, "upper1": 884.7, "upper10": 94.1, "upper2": 463.5, "upper20": 45.7, "upper5": 190.5, "upper50": 15.5}, {"area": 35.0, "bcf": 0.245, "distance": 77.88, "i2_6h": 13.817, "i50_6h": 34.05, "latc": -34.575, "lato": -34.5767, "lonc": 150.66, "lono": 150.705, "lower1": 300.71, "lower10": 140.67, "lower2": 254.52, "lower20": 94.74, "lower5": 189.16, "lower50": 42.03, "mar": 2000.0, "q1": 555.83, "q10": 201.4, "q2": 426.98, "q20": 130.88, "q5": 287.05, "q50": 57.04, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 22.83, "lower_limit": 7.86, "upper_limit": 65.41}, {"aep": 5, "flow": 57.85, "lower_limit": 21.12, "upper_limit": 157.43}, {"aep": 10, "flow": 94.97, "lower_limit": 34.96, "upper_limit": 257.86}, {"aep": 20, "flow": 143.59, "lower_limit": 52.35, "upper_limit": 394.77}, {"aep": 50, "flow": 229.99, "lower_limit": 82.27, "upper_limit": 645.04}, {"aep": 100, "flow": 315.57, "lower_limit": 110.9, "upper_limit": 904.85}], "sf": 0.719, "sflength": 33.0, "station_id": "214003", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 3.144, "mean_se": 0.6411, "skew": 0.089, "skew_se": 0.0274, "stdev": 1.0915, "stdev_se": 0.1626}, "upper1": 1656.4, "upper10": 312.9, "upper2": 1008.4, "upper20": 186.8, "upper5": 519.1, "upper50": 78.0}, {"area": 83.0, "bcf": 0.474, "distance": 79.08, "i2_6h": 9.733, "i50_6h": 24.933, "latc": -33.2977, "lato": -33.35, "lonc": 151.278, "lono": 151.34, "lower1": 246.28, "lower10": 95.27, "lower2": 200.14, "lower20": 58.33, "lower5": 137.67, "lower50": 20.57, "mar": 1365.19, "q1": 508.86, "q10": 146.92, "q2": 369.68, "q20": 85.84, "q5": 227.53, "q50": 29.97, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 12.7, "lower_limit": 5.39, "upper_limit": 29.68}, {"aep": 5, "flow": 28.52, "lower_limit": 12.69, "upper_limit": 63.95}, {"aep": 10, "flow": 43.85, "lower_limit": 19.61, "upper_limit": 98.06}, {"aep": 20, "flow": 62.73, "lower_limit": 27.76, "upper_limit": 142.45}, {"aep": 50, "flow": 94.27, "lower_limit": 41.01, "upper_limit": 217.85}, {"aep": 100, "flow": 123.88, "lower_limit": 52.9, "upper_limit": 292.83}], "sf": 0.9267, "sflength": 35.0, "station_id": "211013", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.553, "mean_se": 0.5167, "skew": 0.075, "skew_se": 0.0267, "stdev": 0.9517100000000001, "stdev_se": 0.1394}, "upper1": 1689.9, "upper10": 254.3, "upper2": 994.9, "upper20": 130.7, "upper5": 469.3, "upper50": 43.9}, {"area": 199.0, "bcf": 1.381, "distance": 80.89, "i2_6h": 6.183, "i50_6h": 12.9, "latc": -33.3841, "lato": -33.43, "lonc": 150.058, "lono": 150.08, "lower1": 404.98, "lower10": 151.01, "lower2": 330.87, "lower20": 84.97, "lower5": 227.04, "lower50": 21.19, "mar": 1096.8, "q1": 658.2, "q10": 216.13, "q2": 509.54, "q20": 120.69, "q5": 331.83, "q50": 32.21, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 12.68, "lower_limit": 5.22, "upper_limit": 30.56}, {"aep": 5, "flow": 32.43, "lower_limit": 14.01, "upper_limit": 74.94}, {"aep": 10, "flow": 53.69, "lower_limit": 23.3, "upper_limit": 123.75}, {"aep": 20, "flow": 81.87, "lower_limit": 35.1, "upper_limit": 191.97}, {"aep": 50, "flow": 132.63, "lower_limit": 55.56, "upper_limit": 318.31}, {"aep": 100, "flow": 183.58, "lower_limit": 75.62, "upper_limit": 451.85}], "sf": 0.4019, "sflength": 60.0, "station_id": "212008", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.562, "mean_se": 0.535, "skew": 0.119, "skew_se": 0.0259, "stdev": 1.0985, "stdev_se": 0.1506}, "upper1": 1501.0, "upper10": 322.7, "upper2": 972.1, "upper20": 174.5, "upper5": 521.1, "upper50": 48.4}, {"area": 15.0, "bcf": -0.837, "distance": 82.39, "i2_6h": 6.4, "i50_6h": 13.117, "latc": -33.6645, "lato": -33.6733, "lonc": 149.896, "lono": 149.9117, "lower1": 19.79, "lower10": 12.53, "lower2": 18.24, "lower20": 9.18, "lower5": 15.37, "lower50": 4.02, "mar": 754.0, "q1": 27.47, "q10": 16.69, "q2": 24.74, "q20": 12.4, "q5": 20.47, "q50": 5.92, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 11.07, "lower_limit": 4.57, "upper_limit": 26.59}, {"aep": 5, "flow": 27.52, "lower_limit": 11.92, "upper_limit": 63.47}, {"aep": 10, "flow": 44.68, "lower_limit": 19.36, "upper_limit": 103.11}, {"aep": 20, "flow": 66.86, "lower_limit": 28.59, "upper_limit": 157.29}, {"aep": 50, "flow": 105.77, "lower_limit": 43.87, "upper_limit": 257.16}, {"aep": 100, "flow": 143.86, "lower_limit": 58.3, "upper_limit": 358.12}], "sf": 0.4665, "sflength": 21.0, "station_id": "421034", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.417, "mean_se": 0.5341, "skew": 0.075, "skew_se": 0.0263, "stdev": 1.0716, "stdev_se": 0.1626}, "upper1": 55.3, "upper10": 23.7, "upper2": 44.8, "upper20": 17.0, "upper5": 31.9, "upper50": 8.5}, {"area": 181.0, "bcf": 1.761, "distance": 86.86, "i2_6h": 8.917, "i50_6h": 22.55, "latc": -33.1416, "lato": -33.2167, "lonc": 151.276, "lono": 151.2667, "lower1": 486.05, "lower10": 226.45, "lower2": 421.14, "lower20": 140.48, "lower5": 312.72, "lower50": 39.36, "mar": 1068.0, "q1": 719.9, "q10": 317.65, "q2": 602.59, "q20": 199.52, "q5": 440.82, "q50": 65.23, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 12.38, "lower_limit": 5.31, "upper_limit": 28.59}, {"aep": 5, "flow": 28.08, "lower_limit": 12.63, "upper_limit": 62.31}, {"aep": 10, "flow": 43.45, "lower_limit": 19.63, "upper_limit": 96.05}, {"aep": 20, "flow": 62.53, "lower_limit": 27.99, "upper_limit": 140.01}, {"aep": 50, "flow": 94.65, "lower_limit": 41.83, "upper_limit": 215.38}, {"aep": 100, "flow": 125.02, "lower_limit": 54.26, "upper_limit": 291.12}], "sf": 0.6436, "sflength": 35.0, "station_id": "211014", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.53, "mean_se": 0.5096, "skew": 0.087, "skew_se": 0.0266, "stdev": 0.9617600000000001, "stdev_se": 0.1338}, "upper1": 1291.0, "upper10": 479.2, "upper2": 1001.2, "upper20": 306.4, "upper5": 652.6, "upper50": 106.0}, {"area": 236.0, "bcf": 0.55, "distance": 87.06, "i2_6h": 8.9, "i50_6h": 22.65, "latc": -33.1663, "lato": -33.27, "lonc": 151.283, "lono": 151.36, "lower1": 509.08, "lower10": 195.93, "lower2": 419.83, "lower20": 114.53, "lower5": 289.82, "lower50": 34.93, "mar": 1239.49, "q1": 1055.84, "q10": 303.39, "q2": 773.6, "q20": 171.5, "q5": 476.1, "q50": 53.29, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 12.79, "lower_limit": 5.46, "upper_limit": 29.66}, {"aep": 5, "flow": 28.8, "lower_limit": 12.87, "upper_limit": 64.22}, {"aep": 10, "flow": 44.37, "lower_limit": 19.99, "upper_limit": 98.51}, {"aep": 20, "flow": 63.6, "lower_limit": 28.54, "upper_limit": 142.25}, {"aep": 50, "flow": 95.85, "lower_limit": 42.36, "upper_limit": 217.7}, {"aep": 100, "flow": 126.23, "lower_limit": 54.92, "upper_limit": 290.92}], "sf": 0.9113, "sflength": 39.0, "station_id": "211009", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.562, "mean_se": 0.5121, "skew": 0.084, "skew_se": 0.0267, "stdev": 0.9532299999999999, "stdev_se": 0.1255}, "upper1": 3566.4, "upper10": 516.3, "upper2": 2090.4, "upper20": 262.1, "upper5": 963.8, "upper50": 80.9}, {"area": 92.0, "bcf": 0.913, "distance": 90.69, "i2_6h": 9.467, "i50_6h": 23.783, "latc": -33.1803, "lato": -33.2483, "lonc": 151.361, "lono": 151.39, "lower1": 74.89, "lower10": 54.67, "lower2": 70.94, "lower20": 44.02, "lower5": 63.21, "lower50": 24.08, "mar": 1192.0, "q1": 94.41, "q10": 65.17, "q2": 87.18, "q20": 52.59, "q5": 75.69, "q50": 31.22, "region": {"name": "East Coast", "number": 1, "version": 1}, "resp": [{"aep": 2, "flow": 12.81, "lower_limit": 5.46, "upper_limit": 29.77}, {"aep": 5, "flow": 29.46, "lower_limit": 13.1, "upper_limit": 65.93}, {"aep": 10, "flow": 45.91, "lower_limit": 20.61, "upper_limit": 102.33}, {"aep": 20, "flow": 66.45, "lower_limit": 29.77, "upper_limit": 148.32}, {"aep": 50, "flow": 101.24, "lower_limit": 44.87, "upper_limit": 228.97}, {"aep": 100, "flow": 134.3, "lower_limit": 58.9, "upper_limit": 306.79}], "sf": 0.8633, "sflength": 27.0, "station_id": "211010", "statistics": {"correlations": [[1.0], [-0.33, 1.0], [0.17, -0.28, 1.0]], "mean": 2.564, "mean_se": 0.5137, "skew": 0.084, "skew_se": 0.0267, "stdev": 0.9784, "stdev_se": 0.117}, "upper1": 165.2, "upper10": 81.7, "upper2": 133.6, "upper20": 64.9, "upper5": 102.0, "upper50": 40.7}];
+    results = [{'aep': 2, 'upper_limit': '32.4', 'lower_limit': '5.20', 'flow': '13.0'}, {'aep': 5, 'upper_limit': '71.9', 'lower_limit': '12.7', 'flow': '30.2'}, {'aep': 10, 'upper_limit': '113', 'lower_limit': '19.9', 'flow': '47.3'}, {'aep': 20, 'upper_limit': '167', 'lower_limit': '28.4', 'flow': '68.6'}, {'aep': 50, 'upper_limit': '263', 'lower_limit': '42.2', 'flow': '105'}, {'aep': 100, 'upper_limit': '358', 'lower_limit': '54.8', 'flow': '139'}];
+  </script>
+  <script src="static/js/mapResults.js"></script>
+  <script src="static/js/nice.js"></script>
+  <script src="static/js/plot.js"></script>
+
+</body>
+</html>

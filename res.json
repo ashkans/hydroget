@@ -1,0 +1,1612 @@
+{
+  "area": 88.0,
+  "bias_correction": -0.133,
+  "catchment_name": "Catchment1",
+  "catchment_version": "RFFE Model 2016 v1",
+  "date_time": "2022-01-16 16:28",
+  "determined_region_name": "East Coast",
+  "determined_region_number": 1,
+  "i2_6h": 7.748585,
+  "i50_6h": 17.566341,
+  "input_region_number": 0,
+  "interpolation": "nn",
+  "method": "all",
+  "nmax": 15,
+  "radius": 300.0,
+  "rainfall_source": "Auto",
+  "region_source": "Auto",
+  "region_version": "RFFE Model 2016 v1",
+  "results": [
+    {
+      "area": 14.0,
+      "bcf": -1.916,
+      "distance": 83.44,
+      "i2_6h": 6.717,
+      "i50_6h": 12.833,
+      "latc": -35.559,
+      "lato": -34.58,
+      "lonc": 148.095,
+      "lono": 148.09,
+      "lower1": 18.69,
+      "lower10": 5.99,
+      "lower2": 14.77,
+      "lower20": 3.14,
+      "lower5": 9.44,
+      "lower50": 0.74,
+      "mar": 753.11,
+      "q1": 41.95,
+      "q10": 10.14,
+      "q2": 29.65,
+      "q20": 5.17,
+      "q5": 17.09,
+      "q50": 1.25,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 0.92,
+          "lower_limit": 0.35,
+          "upper_limit": 2.38
+        },
+        {
+          "aep": 5,
+          "flow": 2.0,
+          "lower_limit": 0.8,
+          "upper_limit": 4.95
+        },
+        {
+          "aep": 10,
+          "flow": 3.03,
+          "lower_limit": 1.23,
+          "upper_limit": 7.45
+        },
+        {
+          "aep": 20,
+          "flow": 4.29,
+          "lower_limit": 1.74,
+          "upper_limit": 10.53
+        },
+        {
+          "aep": 50,
+          "flow": 6.39,
+          "lower_limit": 2.57,
+          "upper_limit": 15.96
+        },
+        {
+          "aep": 100,
+          "flow": 8.36,
+          "lower_limit": 3.34,
+          "upper_limit": 21.01
+        }
+      ],
+      "sf": 0.68,
+      "sflength": 36.0,
+      "station_id": "410112",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": -0.064,
+        "mean_se": 0.5771,
+        "skew": 0.124,
+        "skew_se": 0.0258,
+        "stdev": 0.9048799999999999,
+        "stdev_se": 0.121
+      },
+      "upper1": 162.4,
+      "upper10": 19.2,
+      "upper2": 90.3,
+      "upper20": 8.8,
+      "upper5": 38.8,
+      "upper50": 2.1
+    },
+    {
+      "area": 124.0,
+      "bcf": -0.087,
+      "distance": 106.66,
+      "i2_6h": 6.05,
+      "i50_6h": 12.75,
+      "latc": -33.3831,
+      "lato": -33.33,
+      "lonc": 148.793,
+      "lono": 148.7133,
+      "lower1": 139.35,
+      "lower10": 83.81,
+      "lower2": 129.91,
+      "lower20": 53.66,
+      "lower5": 108.43,
+      "lower50": 16.26,
+      "mar": 636.0,
+      "q1": 223.63,
+      "q10": 123.58,
+      "q2": 199.26,
+      "q20": 83.53,
+      "q5": 159.5,
+      "q50": 29.5,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 3.58,
+          "lower_limit": 1.32,
+          "upper_limit": 9.63
+        },
+        {
+          "aep": 5,
+          "flow": 8.41,
+          "lower_limit": 3.25,
+          "upper_limit": 21.61
+        },
+        {
+          "aep": 10,
+          "flow": 13.29,
+          "lower_limit": 5.2,
+          "upper_limit": 33.9
+        },
+        {
+          "aep": 20,
+          "flow": 19.48,
+          "lower_limit": 7.59,
+          "upper_limit": 49.8
+        },
+        {
+          "aep": 50,
+          "flow": 30.14,
+          "lower_limit": 11.6,
+          "upper_limit": 78.82
+        },
+        {
+          "aep": 100,
+          "flow": 40.45,
+          "lower_limit": 15.37,
+          "upper_limit": 107.06
+        }
+      ],
+      "sf": 0.877,
+      "sflength": 20.0,
+      "station_id": "412076",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.294,
+        "mean_se": 0.6021,
+        "skew": 0.11,
+        "skew_se": 0.0258,
+        "stdev": 0.99972,
+        "stdev_se": 0.1402
+      },
+      "upper1": 850.1,
+      "upper10": 201.3,
+      "upper2": 567.9,
+      "upper20": 124.7,
+      "upper5": 327.5,
+      "upper50": 52.9
+    },
+    {
+      "area": 272.0,
+      "bcf": -0.869,
+      "distance": 111.36,
+      "i2_6h": 6.033,
+      "i50_6h": 12.617,
+      "latc": -33.2446,
+      "lato": -33.2867,
+      "lonc": 148.87,
+      "lono": 148.7383,
+      "lower1": 101.13,
+      "lower10": 61.87,
+      "lower2": 93.62,
+      "lower20": 42.07,
+      "lower5": 78.39,
+      "lower50": 13.97,
+      "mar": 811.0,
+      "q1": 147.81,
+      "q10": 88.57,
+      "q2": 134.14,
+      "q20": 62.44,
+      "q5": 110.78,
+      "q50": 24.16,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 3.84,
+          "lower_limit": 1.48,
+          "upper_limit": 9.86
+        },
+        {
+          "aep": 5,
+          "flow": 9.0,
+          "lower_limit": 3.65,
+          "upper_limit": 22.08
+        },
+        {
+          "aep": 10,
+          "flow": 14.17,
+          "lower_limit": 5.79,
+          "upper_limit": 34.62
+        },
+        {
+          "aep": 20,
+          "flow": 20.68,
+          "lower_limit": 8.41,
+          "upper_limit": 51.03
+        },
+        {
+          "aep": 50,
+          "flow": 31.81,
+          "lower_limit": 12.72,
+          "upper_limit": 79.97
+        },
+        {
+          "aep": 100,
+          "flow": 42.49,
+          "lower_limit": 16.71,
+          "upper_limit": 108.56
+        }
+      ],
+      "sf": 0.8198,
+      "sflength": 20.0,
+      "station_id": "412090",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.361,
+        "mean_se": 0.574,
+        "skew": 0.088,
+        "skew_se": 0.0258,
+        "stdev": 0.9989399999999999,
+        "stdev_se": 0.1428
+      },
+      "upper1": 449.0,
+      "upper10": 142.9,
+      "upper2": 329.6,
+      "upper20": 93.8,
+      "upper5": 210.4,
+      "upper50": 41.6
+    },
+    {
+      "area": 332.0,
+      "bcf": 0.717,
+      "distance": 113.41,
+      "i2_6h": 5.233,
+      "i50_6h": 11.433,
+      "latc": -34.5258,
+      "lato": -34.4467,
+      "lonc": 148.885,
+      "lono": 148.7917,
+      "lower1": 270.13,
+      "lower10": 141.56,
+      "lower2": 238.55,
+      "lower20": 96.61,
+      "lower5": 185.43,
+      "lower50": 36.29,
+      "mar": 656.0,
+      "q1": 421.99,
+      "q10": 197.83,
+      "q2": 354.13,
+      "q20": 133.66,
+      "q5": 264.44,
+      "q50": 55.31,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 3.23,
+          "lower_limit": 1.24,
+          "upper_limit": 8.39
+        },
+        {
+          "aep": 5,
+          "flow": 7.63,
+          "lower_limit": 3.07,
+          "upper_limit": 18.93
+        },
+        {
+          "aep": 10,
+          "flow": 12.08,
+          "lower_limit": 4.87,
+          "upper_limit": 29.93
+        },
+        {
+          "aep": 20,
+          "flow": 17.74,
+          "lower_limit": 7.05,
+          "upper_limit": 44.93
+        },
+        {
+          "aep": 50,
+          "flow": 27.51,
+          "lower_limit": 10.64,
+          "upper_limit": 71.8
+        },
+        {
+          "aep": 100,
+          "flow": 36.96,
+          "lower_limit": 13.94,
+          "upper_limit": 98.7
+        }
+      ],
+      "sf": 0.6944,
+      "sflength": 27.0,
+      "station_id": "412096",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.192,
+        "mean_se": 0.5802,
+        "skew": 0.108,
+        "skew_se": 0.0261,
+        "stdev": 1.0052,
+        "stdev_se": 0.1706
+      },
+      "upper1": 882.4,
+      "upper10": 293.9,
+      "upper2": 641.6,
+      "upper20": 196.8,
+      "upper5": 411.3,
+      "upper50": 83.3
+    },
+    {
+      "area": 145.0,
+      "bcf": -0.121,
+      "distance": 131.59,
+      "i2_6h": 5.883,
+      "i50_6h": 11.8,
+      "latc": -33.7698,
+      "lato": -33.8,
+      "lonc": 149.229,
+      "lono": 149.19,
+      "lower1": 284.63,
+      "lower10": 118.09,
+      "lower2": 235.58,
+      "lower20": 75.14,
+      "lower5": 167.36,
+      "lower50": 29.73,
+      "mar": 867.95,
+      "q1": 619.02,
+      "q10": 180.39,
+      "q2": 446.98,
+      "q20": 108.64,
+      "q5": 275.69,
+      "q50": 42.0,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 5.21,
+          "lower_limit": 2.02,
+          "upper_limit": 13.32
+        },
+        {
+          "aep": 5,
+          "flow": 13.16,
+          "lower_limit": 5.37,
+          "upper_limit": 32.2
+        },
+        {
+          "aep": 10,
+          "flow": 21.61,
+          "lower_limit": 8.83,
+          "upper_limit": 52.96
+        },
+        {
+          "aep": 20,
+          "flow": 32.71,
+          "lower_limit": 13.16,
+          "upper_limit": 81.79
+        },
+        {
+          "aep": 50,
+          "flow": 52.52,
+          "lower_limit": 20.44,
+          "upper_limit": 136.34
+        },
+        {
+          "aep": 100,
+          "flow": 72.23,
+          "lower_limit": 27.4,
+          "upper_limit": 192.5
+        }
+      ],
+      "sf": 0.422,
+      "sflength": 33.0,
+      "station_id": "412081",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.669,
+        "mean_se": 0.5721,
+        "skew": 0.107,
+        "skew_se": 0.0264,
+        "stdev": 1.0857,
+        "stdev_se": 0.1746
+      },
+      "upper1": 2382.1,
+      "upper10": 312.3,
+      "upper2": 1330.3,
+      "upper20": 161.9,
+      "upper5": 587.2,
+      "upper50": 60.1
+    },
+    {
+      "area": 1036.0,
+      "bcf": 0.325,
+      "distance": 132.76,
+      "i2_6h": 6.25,
+      "i50_6h": 14.133,
+      "latc": -32.8655,
+      "lato": -32.7233,
+      "lonc": 148.144,
+      "lono": 148.13,
+      "lower1": 292.72,
+      "lower10": 107.91,
+      "lower2": 238.09,
+      "lower20": 66.36,
+      "lower5": 160.75,
+      "lower50": 24.52,
+      "mar": 582.0,
+      "q1": 769.62,
+      "q10": 179.6,
+      "q2": 519.87,
+      "q20": 101.16,
+      "q5": 293.51,
+      "q50": 35.91,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 3.39,
+          "lower_limit": 1.33,
+          "upper_limit": 8.53
+        },
+        {
+          "aep": 5,
+          "flow": 7.86,
+          "lower_limit": 3.24,
+          "upper_limit": 18.99
+        },
+        {
+          "aep": 10,
+          "flow": 12.32,
+          "lower_limit": 5.12,
+          "upper_limit": 29.61
+        },
+        {
+          "aep": 20,
+          "flow": 17.91,
+          "lower_limit": 7.45,
+          "upper_limit": 43.05
+        },
+        {
+          "aep": 50,
+          "flow": 27.46,
+          "lower_limit": 11.3,
+          "upper_limit": 67.2
+        },
+        {
+          "aep": 100,
+          "flow": 36.58,
+          "lower_limit": 14.86,
+          "upper_limit": 90.18
+        }
+      ],
+      "sf": 0.5084,
+      "sflength": 31.0,
+      "station_id": "421076",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.237,
+        "mean_se": 0.5619,
+        "skew": 0.094,
+        "skew_se": 0.0258,
+        "stdev": 0.9866299999999999,
+        "stdev_se": 0.1255
+      },
+      "upper1": 3519.0,
+      "upper10": 309.2,
+      "upper2": 1677.2,
+      "upper20": 162.2,
+      "upper5": 635.4,
+      "upper50": 55.6
+    },
+    {
+      "area": 411.0,
+      "bcf": -0.202,
+      "distance": 134.41,
+      "i2_6h": 6.583,
+      "i50_6h": 14.133,
+      "latc": -35.1419,
+      "lato": -35.02,
+      "lonc": 148.437,
+      "lono": 148.25,
+      "lower1": 151.15,
+      "lower10": 84.17,
+      "lower2": 131.23,
+      "lower20": 64.58,
+      "lower5": 104.33,
+      "lower50": 39.38,
+      "mar": 962.21,
+      "q1": 234.76,
+      "q10": 106.15,
+      "q2": 188.9,
+      "q20": 78.41,
+      "q5": 138.22,
+      "q50": 46.18,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 3.98,
+          "lower_limit": 1.24,
+          "upper_limit": 12.65
+        },
+        {
+          "aep": 5,
+          "flow": 8.42,
+          "lower_limit": 2.75,
+          "upper_limit": 25.52
+        },
+        {
+          "aep": 10,
+          "flow": 12.53,
+          "lower_limit": 4.17,
+          "upper_limit": 37.47
+        },
+        {
+          "aep": 20,
+          "flow": 17.45,
+          "lower_limit": 5.84,
+          "upper_limit": 52.14
+        },
+        {
+          "aep": 50,
+          "flow": 25.43,
+          "lower_limit": 8.51,
+          "upper_limit": 76.12
+        },
+        {
+          "aep": 100,
+          "flow": 32.73,
+          "lower_limit": 10.86,
+          "upper_limit": 98.96
+        }
+      ],
+      "sf": 1.1068,
+      "sflength": 43.0,
+      "station_id": "410038",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.393,
+        "mean_se": 0.7015,
+        "skew": 0.074,
+        "skew_se": 0.0259,
+        "stdev": 0.88025,
+        "stdev_se": 0.126
+      },
+      "upper1": 474.9,
+      "upper10": 140.4,
+      "upper2": 328.0,
+      "upper20": 97.2,
+      "upper5": 201.8,
+      "upper50": 54.4
+    },
+    {
+      "area": 740.0,
+      "bcf": 0.263,
+      "distance": 137.71,
+      "i2_6h": 5.467,
+      "i50_6h": 10.917,
+      "latc": -34.3856,
+      "lato": -34.31,
+      "lonc": 149.355,
+      "lono": 149.17,
+      "lower1": 1114.1,
+      "lower10": 415.8,
+      "lower2": 912.16,
+      "lower20": 236.67,
+      "lower5": 621.79,
+      "lower50": 70.05,
+      "mar": 788.3,
+      "q1": 2428.46,
+      "q10": 656.81,
+      "q2": 1750.6,
+      "q20": 362.49,
+      "q5": 1052.05,
+      "q50": 107.91,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 3.75,
+          "lower_limit": 1.39,
+          "upper_limit": 10.03
+        },
+        {
+          "aep": 5,
+          "flow": 8.55,
+          "lower_limit": 3.34,
+          "upper_limit": 21.79
+        },
+        {
+          "aep": 10,
+          "flow": 13.28,
+          "lower_limit": 5.23,
+          "upper_limit": 33.71
+        },
+        {
+          "aep": 20,
+          "flow": 19.19,
+          "lower_limit": 7.51,
+          "upper_limit": 49.23
+        },
+        {
+          "aep": 50,
+          "flow": 29.21,
+          "lower_limit": 11.21,
+          "upper_limit": 76.41
+        },
+        {
+          "aep": 100,
+          "flow": 38.75,
+          "lower_limit": 14.63,
+          "upper_limit": 103.14
+        }
+      ],
+      "sf": 0.7185,
+      "sflength": 34.0,
+      "station_id": "412050",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.339,
+        "mean_se": 0.5982,
+        "skew": 0.104,
+        "skew_se": 0.0264,
+        "stdev": 0.96491,
+        "stdev_se": 0.1491
+      },
+      "upper1": 8853.4,
+      "upper10": 1155.7,
+      "upper2": 5006.3,
+      "upper20": 566.6,
+      "upper5": 2247.4,
+      "upper50": 167.1
+    },
+    {
+      "area": 9.0,
+      "bcf": 0.385,
+      "distance": 143.56,
+      "i2_6h": 5.767,
+      "i50_6h": 12.433,
+      "latc": -35.1472,
+      "lato": -35.1383,
+      "lonc": 148.125,
+      "lono": 148.11,
+      "lower1": 33.05,
+      "lower10": 15.63,
+      "lower2": 28.33,
+      "lower20": 10.02,
+      "lower5": 21.26,
+      "lower50": 3.57,
+      "mar": 762.0,
+      "q1": 61.39,
+      "q10": 24.14,
+      "q2": 49.09,
+      "q20": 15.28,
+      "q5": 34.2,
+      "q50": 5.68,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 4.85,
+          "lower_limit": 1.57,
+          "upper_limit": 14.87
+        },
+        {
+          "aep": 5,
+          "flow": 10.3,
+          "lower_limit": 3.48,
+          "upper_limit": 30.26
+        },
+        {
+          "aep": 10,
+          "flow": 15.38,
+          "lower_limit": 5.28,
+          "upper_limit": 44.6
+        },
+        {
+          "aep": 20,
+          "flow": 21.47,
+          "lower_limit": 7.42,
+          "upper_limit": 62.2
+        },
+        {
+          "aep": 50,
+          "flow": 31.4,
+          "lower_limit": 10.87,
+          "upper_limit": 90.89
+        },
+        {
+          "aep": 100,
+          "flow": 40.53,
+          "lower_limit": 13.95,
+          "upper_limit": 118.25
+        }
+      ],
+      "sf": 0.5794,
+      "sflength": 25.0,
+      "station_id": "410152",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.592,
+        "mean_se": 0.6805,
+        "skew": 0.083,
+        "skew_se": 0.0258,
+        "stdev": 0.88418,
+        "stdev_se": 0.1191
+      },
+      "upper1": 219.2,
+      "upper10": 42.4,
+      "upper2": 136.5,
+      "upper20": 24.1,
+      "upper5": 70.9,
+      "upper50": 8.9
+    },
+    {
+      "area": 365.0,
+      "bcf": 0.968,
+      "distance": 144.62,
+      "i2_6h": 6.217,
+      "i50_6h": 12.6,
+      "latc": -33.13,
+      "lato": -33.03,
+      "lonc": 149.05,
+      "lono": 148.95,
+      "lower1": 779.34,
+      "lower10": 230.35,
+      "lower2": 577.61,
+      "lower20": 133.59,
+      "lower5": 356.99,
+      "lower50": 44.37,
+      "mar": 920.16,
+      "q1": 1871.93,
+      "q10": 379.89,
+      "q2": 1218.67,
+      "q20": 202.05,
+      "q5": 651.39,
+      "q50": 64.43,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 3.46,
+          "lower_limit": 1.38,
+          "upper_limit": 8.55
+        },
+        {
+          "aep": 5,
+          "flow": 7.94,
+          "lower_limit": 3.34,
+          "upper_limit": 18.78
+        },
+        {
+          "aep": 10,
+          "flow": 12.37,
+          "lower_limit": 5.24,
+          "upper_limit": 29.21
+        },
+        {
+          "aep": 20,
+          "flow": 17.9,
+          "lower_limit": 7.52,
+          "upper_limit": 42.7
+        },
+        {
+          "aep": 50,
+          "flow": 27.26,
+          "lower_limit": 11.27,
+          "upper_limit": 66.16
+        },
+        {
+          "aep": 100,
+          "flow": 36.16,
+          "lower_limit": 14.72,
+          "upper_limit": 89.41
+        }
+      ],
+      "sf": 0.7832,
+      "sflength": 37.0,
+      "station_id": "421050",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.254,
+        "mean_se": 0.5511,
+        "skew": 0.085,
+        "skew_se": 0.0256,
+        "stdev": 0.977,
+        "stdev_se": 0.14
+      },
+      "upper1": 7015.7,
+      "upper10": 708.5,
+      "upper2": 3660.4,
+      "upper20": 327.1,
+      "upper5": 1475.9,
+      "upper50": 94.1
+    },
+    {
+      "area": 321.0,
+      "bcf": 0.492,
+      "distance": 144.91,
+      "i2_6h": 5.833,
+      "i50_6h": 11.5,
+      "latc": -34.1362,
+      "lato": -34.02,
+      "lonc": 149.374,
+      "lono": 149.33,
+      "lower1": 509.53,
+      "lower10": 210.36,
+      "lower2": 420.29,
+      "lower20": 132.49,
+      "lower5": 297.56,
+      "lower50": 52.37,
+      "mar": 851.22,
+      "q1": 1081.35,
+      "q10": 322.78,
+      "q2": 788.29,
+      "q20": 194.41,
+      "q5": 491.07,
+      "q50": 73.95,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 4.82,
+          "lower_limit": 1.88,
+          "upper_limit": 12.24
+        },
+        {
+          "aep": 5,
+          "flow": 12.52,
+          "lower_limit": 5.15,
+          "upper_limit": 30.41
+        },
+        {
+          "aep": 10,
+          "flow": 20.87,
+          "lower_limit": 8.63,
+          "upper_limit": 50.48
+        },
+        {
+          "aep": 20,
+          "flow": 31.99,
+          "lower_limit": 13.07,
+          "upper_limit": 78.69
+        },
+        {
+          "aep": 50,
+          "flow": 52.09,
+          "lower_limit": 20.88,
+          "upper_limit": 130.76
+        },
+        {
+          "aep": 100,
+          "flow": 72.31,
+          "lower_limit": 28.38,
+          "upper_limit": 186.12
+        }
+      ],
+      "sf": 0.7795,
+      "sflength": 33.0,
+      "station_id": "412083",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.593,
+        "mean_se": 0.5671,
+        "skew": 0.107,
+        "skew_se": 0.0264,
+        "stdev": 1.1179,
+        "stdev_se": 0.1523
+      },
+      "upper1": 3874.7,
+      "upper10": 542.1,
+      "upper2": 2177.2,
+      "upper20": 291.4,
+      "upper5": 996.0,
+      "upper50": 106.9
+    },
+    {
+      "area": 530.0,
+      "bcf": -0.392,
+      "distance": 148.86,
+      "i2_6h": 5.817,
+      "i50_6h": 12.583,
+      "latc": -35.3485,
+      "lato": -35.2,
+      "lonc": 147.495,
+      "lono": 147.51,
+      "lower1": 176.8,
+      "lower10": 78.48,
+      "lower2": 146.85,
+      "lower20": 52.26,
+      "lower5": 107.2,
+      "lower50": 23.22,
+      "mar": 671.68,
+      "q1": 290.42,
+      "q10": 103.06,
+      "q2": 221.51,
+      "q20": 66.73,
+      "q5": 147.66,
+      "q50": 29.13,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 3.33,
+          "lower_limit": 1.13,
+          "upper_limit": 9.76
+        },
+        {
+          "aep": 5,
+          "flow": 6.49,
+          "lower_limit": 2.31,
+          "upper_limit": 18.15
+        },
+        {
+          "aep": 10,
+          "flow": 9.27,
+          "lower_limit": 3.34,
+          "upper_limit": 25.73
+        },
+        {
+          "aep": 20,
+          "flow": 12.47,
+          "lower_limit": 4.52,
+          "upper_limit": 34.5
+        },
+        {
+          "aep": 50,
+          "flow": 17.48,
+          "lower_limit": 6.28,
+          "upper_limit": 48.87
+        },
+        {
+          "aep": 100,
+          "flow": 21.92,
+          "lower_limit": 7.81,
+          "upper_limit": 61.86
+        }
+      ],
+      "sf": 0.7423,
+      "sflength": 48.0,
+      "station_id": "410048",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.215,
+        "mean_se": 0.652,
+        "skew": 0.087,
+        "skew_se": 0.0261,
+        "stdev": 0.78356,
+        "stdev_se": 0.1307
+      },
+      "upper1": 604.0,
+      "upper10": 141.2,
+      "upper2": 401.2,
+      "upper20": 86.4,
+      "upper5": 224.2,
+      "upper50": 36.7
+    },
+    {
+      "area": 612.0,
+      "bcf": 1.065,
+      "distance": 149.09,
+      "i2_6h": 6.517,
+      "i50_6h": 14.0,
+      "latc": -32.904,
+      "lato": -32.7083,
+      "lonc": 148.527,
+      "lono": 148.5517,
+      "lower1": 602.24,
+      "lower10": 211.2,
+      "lower2": 484.71,
+      "lower20": 119.07,
+      "lower5": 320.08,
+      "lower50": 33.64,
+      "mar": 584.0,
+      "q1": 1499.11,
+      "q10": 378.55,
+      "q2": 1060.38,
+      "q20": 203.65,
+      "q5": 620.23,
+      "q50": 58.08,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 3.47,
+          "lower_limit": 1.4,
+          "upper_limit": 8.5
+        },
+        {
+          "aep": 5,
+          "flow": 7.94,
+          "lower_limit": 3.36,
+          "upper_limit": 18.67
+        },
+        {
+          "aep": 10,
+          "flow": 12.33,
+          "lower_limit": 5.27,
+          "upper_limit": 28.92
+        },
+        {
+          "aep": 20,
+          "flow": 17.81,
+          "lower_limit": 7.57,
+          "upper_limit": 41.95
+        },
+        {
+          "aep": 50,
+          "flow": 27.05,
+          "lower_limit": 11.34,
+          "upper_limit": 64.9
+        },
+        {
+          "aep": 100,
+          "flow": 35.81,
+          "lower_limit": 14.79,
+          "upper_limit": 87.08
+        }
+      ],
+      "sf": 0.9123,
+      "sflength": 25.0,
+      "station_id": "421048",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.256,
+        "mean_se": 0.5465,
+        "skew": 0.081,
+        "skew_se": 0.0255,
+        "stdev": 0.9733,
+        "stdev_se": 0.1322
+      },
+      "upper1": 8151.3,
+      "upper10": 783.1,
+      "upper2": 4131.6,
+      "upper20": 376.3,
+      "upper5": 1622.5,
+      "upper50": 101.4
+    },
+    {
+      "area": 23.0,
+      "bcf": 0.093,
+      "distance": 159.33,
+      "i2_6h": 6.033,
+      "i50_6h": 12.95,
+      "latc": -35.2254,
+      "lato": -35.24,
+      "lonc": 148.337,
+      "lono": 148.31,
+      "lower1": 55.45,
+      "lower10": 29.14,
+      "lower2": 48.44,
+      "lower20": 20.2,
+      "lower5": 37.74,
+      "lower50": 8.91,
+      "mar": 1288.9,
+      "q1": 85.48,
+      "q10": 39.08,
+      "q2": 70.71,
+      "q20": 26.83,
+      "q5": 52.19,
+      "q50": 12.05,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 4.91,
+          "lower_limit": 1.49,
+          "upper_limit": 16.06
+        },
+        {
+          "aep": 5,
+          "flow": 10.06,
+          "lower_limit": 3.2,
+          "upper_limit": 31.33
+        },
+        {
+          "aep": 10,
+          "flow": 14.72,
+          "lower_limit": 4.77,
+          "upper_limit": 45.3
+        },
+        {
+          "aep": 20,
+          "flow": 20.23,
+          "lower_limit": 6.59,
+          "upper_limit": 62.08
+        },
+        {
+          "aep": 50,
+          "flow": 29.03,
+          "lower_limit": 9.44,
+          "upper_limit": 89.15
+        },
+        {
+          "aep": 100,
+          "flow": 37.0,
+          "lower_limit": 11.92,
+          "upper_limit": 115.26
+        }
+      ],
+      "sf": 0.6325,
+      "sflength": 35.0,
+      "station_id": "410114",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": 1.603,
+        "mean_se": 0.7188,
+        "skew": 0.08,
+        "skew_se": 0.026,
+        "stdev": 0.8419200000000001,
+        "stdev_se": 0.131
+      },
+      "upper1": 187.5,
+      "upper10": 55.7,
+      "upper2": 134.4,
+      "upper20": 36.3,
+      "upper5": 82.6,
+      "upper50": 16.2
+    },
+    {
+      "area": 186.0,
+      "bcf": 0.985,
+      "distance": 160.71,
+      "i2_6h": 6.333,
+      "i50_6h": 14.15,
+      "latc": -35.1292,
+      "lato": -35.0283,
+      "lonc": 148.803,
+      "lono": 148.83,
+      "lower1": 239.72,
+      "lower10": 142.11,
+      "lower2": 221.07,
+      "lower20": 92.35,
+      "lower5": 183.36,
+      "lower50": 26.85,
+      "mar": 811.0,
+      "q1": 308.42,
+      "q10": 189.7,
+      "q2": 282.85,
+      "q20": 132.64,
+      "q5": 236.39,
+      "q50": 47.81,
+      "region": {
+        "name": "East Coast",
+        "number": 1,
+        "version": 1
+      },
+      "resp": [
+        {
+          "aep": 2,
+          "flow": 0.19,
+          "lower_limit": 0.07,
+          "upper_limit": 0.51
+        },
+        {
+          "aep": 5,
+          "flow": 0.36,
+          "lower_limit": 0.14,
+          "upper_limit": 0.93
+        },
+        {
+          "aep": 10,
+          "flow": 0.5,
+          "lower_limit": 0.19,
+          "upper_limit": 1.31
+        },
+        {
+          "aep": 20,
+          "flow": 0.67,
+          "lower_limit": 0.26,
+          "upper_limit": 1.74
+        },
+        {
+          "aep": 50,
+          "flow": 0.94,
+          "lower_limit": 0.36,
+          "upper_limit": 2.46
+        },
+        {
+          "aep": 100,
+          "flow": 1.17,
+          "lower_limit": 0.44,
+          "upper_limit": 3.11
+        }
+      ],
+      "sf": 0.8686,
+      "sflength": 32.0,
+      "station_id": "410107",
+      "statistics": {
+        "correlations": [
+          [
+            1.0
+          ],
+          [
+            -0.33,
+            1.0
+          ],
+          [
+            0.17,
+            -0.28,
+            1.0
+          ]
+        ],
+        "mean": -1.657,
+        "mean_se": 0.6097,
+        "skew": 0.114,
+        "skew_se": 0.0261,
+        "stdev": 0.75184,
+        "stdev_se": 0.1322
+      },
+      "upper1": 533.2,
+      "upper10": 253.6,
+      "upper2": 447.3,
+      "upper20": 179.6,
+      "upper5": 334.7,
+      "upper50": 69.1
+    }
+  ],
+  "sf": 29.36,
+  "txt": "RESULTS FROM ARR RFFE 2015 MODEL\r\n\r\nDatetime: 2022-01-16 16:28\r\nRegion name: East Coast\r\nRegion code: 1\r\nSite name: Catchment1\r\nLatitude at catchment outlet (degree) = -33.8783\r\nLongitude at catchment outlet (degree) = 147.7683\r\nLatitude at catchment centroid (degree) = -33.9607\r\nLongitude at catchment centroid (degree) = 150.752\r\nDistance of the nearest gauged catchment in the database (km) = 83.44\r\nCatchment area (sq km) = 88.0\r\nDesign rainfall intensity, 1 in 2 AEP and 6 hr duration (mm/h): 7.748585\r\nDesign rainfall intensity, 1 in 50 AEP and 6 hr duration (mm/h): 17.566341\r\nShape factor of the ungauged catchment: 29.36\r\n\r\n\r\nESTIMATED FLOOD QUANTILES:\r\n\r\n  AEP (%)        Expected quantiles (m^3/s)    5% CL  m^3/s       95% CL  m^3/s\r\n    50                      3.31                   1.21                8.98\r\n    20                      7.57                   2.94                19.6\r\n    10                      11.8                   4.64                30.3\r\n     5                      17.2                   6.71                44.2\r\n     2                      26.3                   10.1                68.9\r\n     1                      35.0                   13.3                93.3\r\n\r\nDATA FOR FITTING MULTI-NORMAL DISTRIBUTION FOR BUILDING CONFIDENCE LIMITS:\r\n\r\n1 Mean (loge flow) = -0.064\r\n2 St dev (loge flow) = 0.905\r\n3 Skew (loge flow) = 0.124\r\n\r\n\r\nMoments and correlations:\r\n\r\n No    Most probable       Std dev                     Correlation\r\n  1       -0.064            0.577              1.000\r\n  2        0.905            0.121             -0.330      1.000\r\n  3        0.124            0.026              0.170     -0.280      1.000\r\n\r\n***WARNING***: The catchment has unusual shape. Results have lower accuracy and\r\nmay not be directly applicable in practice.\r\n\r\nThis is the end of output file.",
+  "use_bias_correction": "true",
+  "weighted_resp_base": [
+    {
+      "aep": 2,
+      "flow": 3.31,
+      "lower_limit": 1.21,
+      "upper_limit": 8.98
+    },
+    {
+      "aep": 5,
+      "flow": 7.57,
+      "lower_limit": 2.94,
+      "upper_limit": 19.58
+    },
+    {
+      "aep": 10,
+      "flow": 11.82,
+      "lower_limit": 4.64,
+      "upper_limit": 30.3
+    },
+    {
+      "aep": 20,
+      "flow": 17.16,
+      "lower_limit": 6.71,
+      "upper_limit": 44.24
+    },
+    {
+      "aep": 50,
+      "flow": 26.28,
+      "lower_limit": 10.13,
+      "upper_limit": 68.9
+    },
+    {
+      "aep": 100,
+      "flow": 35.04,
+      "lower_limit": 13.3,
+      "upper_limit": 93.28
+    }
+  ],
+  "weighted_resp_float": [
+    {
+      "aep": 2,
+      "flow": 3.31,
+      "lower_limit": 1.21,
+      "upper_limit": 8.98
+    },
+    {
+      "aep": 5,
+      "flow": 7.57,
+      "lower_limit": 2.94,
+      "upper_limit": 19.58
+    },
+    {
+      "aep": 10,
+      "flow": 11.82,
+      "lower_limit": 4.64,
+      "upper_limit": 30.3
+    },
+    {
+      "aep": 20,
+      "flow": 17.16,
+      "lower_limit": 6.71,
+      "upper_limit": 44.24
+    },
+    {
+      "aep": 50,
+      "flow": 26.28,
+      "lower_limit": 10.13,
+      "upper_limit": 68.9
+    },
+    {
+      "aep": 100,
+      "flow": 35.04,
+      "lower_limit": 13.3,
+      "upper_limit": 93.28
+    }
+  ],
+  "weighted_resp_rounded": [
+    {
+      "aep": 2,
+      "flow": "3.31",
+      "lower_limit": "1.21",
+      "upper_limit": "8.98"
+    },
+    {
+      "aep": 5,
+      "flow": "7.57",
+      "lower_limit": "2.94",
+      "upper_limit": "19.6"
+    },
+    {
+      "aep": 10,
+      "flow": "11.8",
+      "lower_limit": "4.64",
+      "upper_limit": "30.3"
+    },
+    {
+      "aep": 20,
+      "flow": "17.2",
+      "lower_limit": "6.71",
+      "upper_limit": "44.2"
+    },
+    {
+      "aep": 50,
+      "flow": "26.3",
+      "lower_limit": "10.1",
+      "upper_limit": "68.9"
+    },
+    {
+      "aep": 100,
+      "flow": "35.0",
+      "lower_limit": "13.3",
+      "upper_limit": "93.3"
+    }
+  ],
+  "x": 150.752,
+  "x_outlet": 147.7683,
+  "y": -33.9607,
+  "y_outlet": -33.8783
+}

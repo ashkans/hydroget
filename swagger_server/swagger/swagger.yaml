@@ -13,122 +13,150 @@ tags:
   description: Secured Admin-only calls
 - name: developers
   description: Operations available to regular developers
+
+
 paths:
-  /example:
+  /rffe_info:
     get:
-      tags:
-      - developers
-      summary: searches inventory
-      description: "By passing in the appropriate options, you can search for\navailable\
-        \ inventory in the system\n"
-      operationId: search_inventory
+      operationId: rffe_info
+      summary: An endpoint which returns a rar file incluidng data required for running a RORB hydrology model
       parameters:
-      - name: searchString
+      - name: latc
         in: query
-        description: pass an optional search string for looking up inventory
-        required: false
-        style: form
-        explode: true
-        schema:
-          type: string
-      - name: skip
-        in: query
-        description: number of records to skip for pagination
+        description: specfies the latitude of the catchment centriod
         required: false
         schema:
-          minimum: 0
-          type: integer
-          format: int32
-      - name: limit
+          type: number
+
+      - name: lonc
         in: query
-        description: maximum number of records to return
+        description: specfies the longitude of the catchment centriod
         required: false
         schema:
-          maximum: 50
-          minimum: 0
-          type: integer
-          format: int32
+          type: number
+
+      - name: lato
+        in: query
+        description: specfies the latitude of the catchment outlet
+        required: false
+        schema:
+          type: number          
+
+      - name: lono
+        in: query
+        description: specfies the longitude of the catchment outlet
+        required: false
+        schema:
+          type: number     
+
+      - name: area
+        in: query
+        description: catchment area
+        required: false
+        schema:
+          type: number 
+          default: 88 
+
+      - name: region
+        in: query
+        description: catchment region
+        required: false
+        schema:
+          type: integer  
+          default: 0
+
+      - name: i2_6h
+        in: query
+        description: i2_6h
+        required: false
+        schema:
+          type: number  
+          default: 0     
+
+      - name: i50_6h
+        in: query
+        description: 50% AEP 6 Hour Rainfall Intensity (mm/h)
+        required: false
+        schema:
+          type: number  
+          default: 0  
+          
+      - name: catchment_name
+        in: query
+        description: catchment name
+        required: false
+        schema:
+          type: string  
+          default: Catchment1               
+
+
       responses:
-        "200":
-          description: search results matching criteria
+        '200':
+          description: The requested data found and returned successfully.
           content:
             application/json:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/InventoryItem'
-                x-content-type: application/json
-        "400":
-          description: bad input parameter
-      x-openapi-router-controller: swagger_server.controllers.developers_controller
-    post:
-      tags:
-      - admins
-      summary: adds an inventory item
-      description: Adds an item to the system
-      operationId: add_inventory
-      requestBody:
-        description: Inventory item to add
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/InventoryItem'
+                type: string
+                
+      x-openapi-router-controller: swagger_server.controllers.io.get_data            
+                
+
+
+
+
+  /test/{name}.pdf:
+    get:
+      operationId: pdf
+      summary: Returns the report in the PDF format
+      parameters:
+      - name: name
+        in: path
+        description: the name of the required file
+        required: true
+        schema:
+          type: string
+        
       responses:
-        "201":
-          description: item created
-        "400":
-          description: "invalid input, object invalid"
-        "409":
-          description: an existing item already exists
-      x-openapi-router-controller: swagger_server.controllers.admins_controller
+        '200':
+          description: A PDF file
+          content:
+            application/pdf:
+              schema:
+                type: string
+                format: binary
+      x-openapi-router-controller: swagger_server.controllers.examples.files
+  
+  /test/get_file/{name}:
+    get:
+      operationId: octet
+      summary: Returns a generic file
+      parameters:
+      - name: name
+        in: path
+        description: the name of the required file
+        required: true
+        schema:
+          type: string
+        
+      responses:
+        '200':
+          description: A generic file
+          headers:
+            Content-Disposition:
+              schema:
+                type: string
+              description: the format is `attachment; filename="name.zip"`          
+          content:
+            application/vnd.rar:
+              schema:
+                type: string
+                format: binary
+
+      x-openapi-router-controller: swagger_server.controllers.examples.files      
+
+
 components:
   schemas:
-    InventoryItem:
-      required:
-      - id
-      - manufacturer
-      - name
-      - releaseDate
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          example: d290f1ee-6c54-4b01-90e6-d701748f0851
-        name:
-          type: string
-          example: Widget Adapter
-        releaseDate:
-          type: string
-          format: date-time
-          example: 2016-08-29T09:12:33.001Z
-        manufacturer:
-          $ref: '#/components/schemas/Manufacturer'
-      example:
-        releaseDate: 2016-08-29T09:12:33.001Z
-        name: Widget Adapter
-        id: d290f1ee-6c54-4b01-90e6-d701748f0851
-        manufacturer:
-          phone: 408-867-5309
-          name: ACME Corporation
-          homePage: https://www.acme-corp.com
-    Manufacturer:
-      required:
-      - name
-      type: object
-      properties:
-        name:
-          type: string
-          example: ACME Corporation
-        homePage:
-          type: string
-          format: url
-          example: https://www.acme-corp.com
-        phone:
-          type: string
-          example: 408-867-5309
-      example:
-        phone: 408-867-5309
-        name: ACME Corporation
-        homePage: https://www.acme-corp.com
-
+    Coordinates:
+      type: number
+      example: 
