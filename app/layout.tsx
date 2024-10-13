@@ -1,6 +1,17 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
-
+import {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+  navigationMenuTriggerStyle,
+} from "@/components/ui/navigation-menu";
+import Link from "next/link";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -15,7 +26,43 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <header className="bg-white shadow-sm  bg-blue-100">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <NavigationMenu className="py-4">
+              <NavigationMenuList className="flex space-x-4">
+                <NavigationMenuItem>
+                  <Link href="/" legacyBehavior passHref>
+                    <NavigationMenuLink
+                      className={
+                        navigationMenuTriggerStyle() +
+                        " text-gray-700 hover:text-gray-900"
+                      }
+                    >
+                      Home
+                    </NavigationMenuLink>
+                  </Link>
+                  <Link href="/api/py/docs" legacyBehavior passHref>
+                    <NavigationMenuLink
+                      className={
+                        navigationMenuTriggerStyle() +
+                        " text-gray-700 hover:text-gray-900"
+                      }
+                    >
+                      API doc
+                    </NavigationMenuLink>
+                  </Link>
+                </NavigationMenuItem>
+                {/* Add more menu items here */}
+              </NavigationMenuList>
+            </NavigationMenu>
+          </div>
+        </header>
+
+        <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+          {children}
+        </main>
+      </body>
     </html>
   );
 }
