@@ -33,14 +33,44 @@ export function ResponseDisplay({ responseData }: ResponseDisplayProps) {
     });
   }, [responseData]);
 
-  // Generate random colors for each line
-  const colors = useMemo(
-    () =>
-      Object.keys(data).map(
-        () => "#" + Math.floor(Math.random() * 16777215).toString(16)
-      ),
-    [data]
-  );
+  // Use an extended colormap with more colors
+  const colors = useMemo(() => {
+    const extendedColormap = [
+      "#1f77b4",
+      "#ff7f0e",
+      "#2ca02c",
+      "#d62728",
+      "#9467bd",
+      "#8c564b",
+      "#e377c2",
+      "#7f7f7f",
+      "#bcbd22",
+      "#17becf",
+      "#aec7e8",
+      "#ffbb78",
+      "#98df8a",
+      "#ff9896",
+      "#c5b0d5",
+      "#c49c94",
+      "#f7b6d2",
+      "#c7c7c7",
+      "#dbdb8d",
+      "#9edae5",
+      "#393b79",
+      "#637939",
+      "#8c6d31",
+      "#843c39",
+      "#7b4173",
+      "#5254a3",
+      "#8ca252",
+      "#bd9e39",
+      "#ad494a",
+      "#a55194",
+    ];
+    return Object.keys(data).map(
+      (_, index) => extendedColormap[index % extendedColormap.length]
+    );
+  }, [data]);
 
   return (
     <div className="w-full mt-6 flex flex-col items-center">
