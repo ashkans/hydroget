@@ -18,11 +18,9 @@ interface ResponseDisplayProps {
 
 // Ensure that this component is only used in a client-side context
 export function ResponseDisplay({ responseData }: ResponseDisplayProps) {
-  if (!responseData) return null;
-  const data = JSON.parse(responseData);
-
-  // Prepare data for Recharts
   const chartData = useMemo(() => {
+    if (!responseData) return [];
+    const data = JSON.parse(responseData);
     const kcValues = data[Object.keys(data)[0]].kc;
     return kcValues.map((kcValue: number, index: number) => {
       const point: { [key: string]: number } = { kc: kcValue };
@@ -33,8 +31,9 @@ export function ResponseDisplay({ responseData }: ResponseDisplayProps) {
     });
   }, [responseData]);
 
-  // Use an extended colormap with more colors
   const colors = useMemo(() => {
+    if (!responseData) return [];
+    const data = JSON.parse(responseData);
     const extendedColormap = [
       "#1f77b4",
       "#ff7f0e",
@@ -70,7 +69,10 @@ export function ResponseDisplay({ responseData }: ResponseDisplayProps) {
     return Object.keys(data).map(
       (_, index) => extendedColormap[index % extendedColormap.length]
     );
-  }, [data]);
+  }, [responseData]);
+
+  if (!responseData) return null;
+  const data = JSON.parse(responseData);
 
   return (
     <div className="w-full mt-6 flex flex-col items-center">
