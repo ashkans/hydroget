@@ -25,7 +25,7 @@ export function ResponseDisplay({ responseData }: ResponseDisplayProps) {
     return kcValues.map((kcValue: number, index: number) => {
       const point: { [key: string]: number } = { kc: kcValue };
       Object.keys(data).forEach((key) => {
-        point[key] = data[key].q_median_one_up[index];
+        point[key] = data[key].peak[index];
       });
       return point;
     });
@@ -100,7 +100,7 @@ export function ResponseDisplay({ responseData }: ResponseDisplayProps) {
               const index = props.payload?.index ?? 0;
               const criticalDuration =
                 data[props.dataKey].critical_duration[index];
-              const pattern = data[props.dataKey].median_one_up_pattern[index];
+              const pattern = data[props.dataKey].critical_pattern[index];
               return `${value} \n(${criticalDuration}  s) \n ${pattern}`;
             }}
           />
