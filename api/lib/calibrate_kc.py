@@ -1,7 +1,7 @@
 from dotenv import load_dotenv
 from pyrorb.tools import kc_calibration
 import os
-import pandas as pd
+
 load_dotenv()
 
 # Import the calibration_tasks dictionary
