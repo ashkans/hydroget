@@ -52,10 +52,12 @@ async def start_calibration_task(
         # Read the content of the uploaded file
     catg_content, storms_content = await read_content(catg, storms)
   
-    return {"message": "Calibration started", "task_id": "123"}
+    
 
     task_id = generate_task_id()
     print(f"Generated task ID: {task_id}")
+    
+    return {"message": "Calibration started", "task_id": "123456"}
     CALIBRATION_TASKS[task_id] = {"status": "pending"}
     background_tasks.add_task(calibrate_kc, catg_content, storms_content, kc, m, initialLoss, continuousLoss, task_id=task_id)
     return task_id
