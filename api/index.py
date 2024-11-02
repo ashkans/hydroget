@@ -53,9 +53,7 @@ async def start_calibration_task(
     catg_content, storms_content = await read_content(catg, storms)
   
 
-    catg_content = catg_content.decode('ISO-8859-1') if catg_content else None
-    
-    storms_content = [storm.decode('ISO-8859-1') for storm in storms_content] if storms_content else []
+
     task_id = generate_task_id()
     print(f"Generated task ID: {task_id}")
     CALIBRATION_TASKS[task_id] = {"status": "pending"}

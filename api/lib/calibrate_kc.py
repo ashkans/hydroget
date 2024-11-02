@@ -28,6 +28,11 @@ def calibrate_kc(catg_data, storms_data, kc, m, initial_loss, continuous_loss, t
     # Update the calibration_tasks dictionary to show that the task is in progress
     CALIBRATION_TASKS[task_id] = {"status": "in_progress"}
 
+
+    catg_content = catg_content.decode('ISO-8859-1') if catg_content else None
+    
+    storms_content = [storm.decode('ISO-8859-1') for storm in storms_content] if storms_content else []
+
     try:
         kc_q_mapping = kc_calibration.kc_calibration(catg_data, storms_data, [0.8,1,1.2,1.4,2], m, initial_loss, continuous_loss)
 
