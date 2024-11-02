@@ -60,8 +60,10 @@ async def start_calibration_task(
     
     CALIBRATION_TASKS[task_id] = {"status": "pending"}
 
-    return {"message": "Calibration started", "task_id": "123456"}
+    
+    print(f"Starting calibration at {datetime.now()}")
     background_tasks.add_task(calibrate_kc, catg_content, storms_content, kc, m, initialLoss, continuousLoss, task_id=task_id)
+    print(f"Calibration task added to background tasks at {datetime.now()}")
     return task_id
 
 @app.post("/api/py/start_calibration")
