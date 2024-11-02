@@ -70,7 +70,7 @@ async def calibration(
     continuousLoss: float = Form(...),
     background_tasks: BackgroundTasks = BackgroundTasks()
 ):
-    
+    return {"message": "Calibration started", "task_id": "123"}
     
     parameters = {
         "kc": kc,
