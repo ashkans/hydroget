@@ -29,9 +29,9 @@ def calibrate_kc(catg_data, storms_data, kc, m, initial_loss, continuous_loss, t
     CALIBRATION_TASKS[task_id] = {"status": "in_progress"}
 
 
-    catg_content = catg_content.decode('ISO-8859-1') if catg_content else None
+    catg_data = catg_data.decode('ISO-8859-1') if catg_data else None
     
-    storms_content = [storm.decode('ISO-8859-1') for storm in storms_content] if storms_content else []
+    storms_data = [storm.decode('ISO-8859-1') for storm in storms_data] if storms_data else []
 
     try:
         kc_q_mapping = kc_calibration.kc_calibration(catg_data, storms_data, [0.8,1,1.2,1.4,2], m, initial_loss, continuous_loss)
