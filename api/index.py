@@ -50,20 +50,12 @@ async def start_calibration_task(
     background_tasks: BackgroundTasks
 ):
         # Read the content of the uploaded file
-    catg_content, storms_content = await read_content(catg, storms)
-  
+ 
     
 
-    task_id = generate_task_id()
-    print(f"Generated task ID: {task_id}")
-    
-    
-    CALIBRATION_TASKS[task_id] = {"status": "pending"}
+
 
     
-    print(f"Starting calibration at {datetime.now()}")
-    background_tasks.add_task(calibrate_kc, catg_content, storms_content, kc, m, initialLoss, continuousLoss, task_id=task_id)
-    print(f"Calibration task added to background tasks at {datetime.now()}")
     return task_id
 
 @app.post("/api/py/start_calibration")
@@ -88,18 +80,13 @@ async def calibration(
 
 
   
-    task_id = await start_calibration_task(
-        catg, 
-        storms, 
-        kc, 
-        m, 
-        initialLoss, 
-        continuousLoss, 
-        background_tasks
-    )
-    
-    
-    
+
+    catg_content, storms_content = await read_content(catg, storms)
+    task_id = generate_task_id()
+    print(f"Generated task ID: {task_id}")
+    CALIBRATION_TASKS[task_id] = {"status": "pending"}
+    background_tasks.add_task(calibrate_kc, catg_content, storms_content, kc, m, initialLoss, continuousLoss, task_id=task_id)
+
     return JSONResponse(content={"message": "Calibration started", "task_id": task_id})
 
 
