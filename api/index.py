@@ -52,7 +52,7 @@ async def start_calibration_task(
         # Read the content of the uploaded file
     catg_content, storms_content = await read_content(catg, storms)
   
-
+    return {"message": "Calibration started", "task_id": "123"}
 
     task_id = generate_task_id()
     print(f"Generated task ID: {task_id}")
@@ -70,7 +70,7 @@ async def calibration(
     continuousLoss: float = Form(...),
     background_tasks: BackgroundTasks = BackgroundTasks()
 ):
-    return {"message": "Calibration started", "task_id": "123"}
+    
     
     parameters = {
         "kc": kc,
@@ -79,6 +79,7 @@ async def calibration(
         "continuousLoss": continuousLoss
     }
     
+
 
   
     task_id = await start_calibration_task(
