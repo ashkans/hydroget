@@ -90,7 +90,7 @@ async def calibration(
     print(f"Starting calibration at {time}")
     background_tasks.add_task(calibrate_kc, catg_content, storms_content, kc, m, initialLoss, continuousLoss, task_id=task_id)
     print(f"Calibration task added to background tasks at {datetime.now()}")
-    return JSONResponse(content={"message": "Calibration started", "task_id": task_id, "time": datetime.now()})
+    return JSONResponse(content={"message": "Calibration started", "task_id": task_id, "time": str(datetime.now())})
 
 
 @app.get("/api/py/get_calibration_status/{task_id}")
