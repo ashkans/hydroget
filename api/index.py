@@ -6,11 +6,8 @@ import os
 import uuid
 import logging
 from datetime import datetime
+import asyncio
 
-logging.basicConfig(
-    level=print,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
 
 from api.lib.db import CALIBRATION_TASKS
 def generate_task_id():
@@ -24,8 +21,24 @@ def hello_fast_api():
     print("Hello endpoint called")
     return {"message": "Hello from FastAPI"}
 
+async def read_content(catg, storms):
+    print(f"Starting concurrent reads at {datetime.now()}")
+    
+    # Use asyncio.gather() to perform concurrent I/O operations
+    catg_task = catg.read() if catg else None
+    storm_tasks = [storm.read() for storm in storms]
+    
+    # Gather all tasks (catg_task only if catg exists)
+    all_results = await asyncio.gather(catg_task, *storm_tasks)
+    
+    # Split results into catg_content and storms_content
+    catg_content = all_results[0] if catg_task else None
+    storms_content = all_results[1:] if catg_task else all_results
+    
+    print(f"Finished reading all contents at {datetime.now()}")
+    
+    return catg_content, storms_content
 
-#@app.post("/api/py/start_calibration")
 
 async def start_calibration_task(
     catg, 
@@ -37,10 +50,7 @@ async def start_calibration_task(
     background_tasks: BackgroundTasks
 ):
         # Read the content of the uploaded file
-    print(f"Reading catg content at {datetime.now()}")
-    catg_content = await catg.read() if catg else None
-    print(f"Reading storms content at {datetime.now()}")
-    storms_content = [await storm.read() for storm in storms]
+    catg_content, storms_content = await read_content(catg, storms)
   
 
     catg_content = catg_content.decode('ISO-8859-1') if catg_content else None

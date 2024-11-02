@@ -189,7 +189,7 @@ export function KcCalibrationMain() {
         </Button>
       </FormContainer>
 
-      {rawResponseData && <DownloadButton rawResponseData={rawResponseData} />}
+      {responseData && <DownloadButton rawResponseData={responseData} />}
 
       <ResponseDisplay responseData={responseData} />
     </div>
