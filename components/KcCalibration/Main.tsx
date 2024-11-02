@@ -16,10 +16,15 @@ import { FileUploadField } from "./FileUploadField";
 import { FormContainer } from "./FormContainer";
 import DownloadButton from "./DownloadButton"; // Import the new DownloadButton component
 
+// Use custom file validation since File is not available during SSR
+const isFile = (value: any): value is File => {
+  return typeof window !== "undefined" && value instanceof File;
+};
+
 const FormSchema = z
   .object({
-    catg: z.instanceof(File).optional(),
-    storms: z.array(z.instanceof(File)).optional(),
+    catg: z.custom<File>(isFile).optional(),
+    storms: z.array(z.custom<File>(isFile)).optional(),
   })
   .merge(ParameterSchema);
 
@@ -44,7 +49,7 @@ export function KcCalibrationMain() {
     const hasCatgFile = !!form.watch("catg");
     const hasStormFiles = (form.watch("storms") || []).length > 0;
 
-    setIsSubmitEnabled(hasCatgFile || hasStormFiles);
+    setIsSubmitEnabled(hasCatgFile && hasStormFiles);
   }, [form.watch("catg"), form.watch("storms")]);
 
   useEffect(() => {
@@ -64,11 +69,11 @@ export function KcCalibrationMain() {
   }, [taskId]);
 
   async function checkCalibrationStatus() {
+    console.log("Checking calibration status");
     try {
       const response = await axios.get(
         `/api/py/get_calibration_status/${taskId}`
       );
-      console.log("Calibration status response:", response.data);
 
       const { result } = response.data;
 
@@ -92,6 +97,7 @@ export function KcCalibrationMain() {
           duration: 3000,
         });
         NProgress.done(); // Complete the progress bar
+        console.log("Calibration completed", mappingData);
       } else if (result.status === "error") {
         setTaskId(null);
         setIsLoading(false);
@@ -104,7 +110,6 @@ export function KcCalibrationMain() {
         NProgress.done(); // Complete the progress bar
       } else if (result.status === "pending") {
         // Task is still running, do nothing and wait for the next interval
-        console.log("Calibration task is still pending");
       }
     } catch (error) {
       console.error("Error checking calibration status:", error);
@@ -137,14 +142,16 @@ export function KcCalibrationMain() {
     formData.append("m", data.m.toString());
     formData.append("initialLoss", data.initialLoss.toString());
     formData.append("continuousLoss", data.continuousLoss.toString());
-    NProgress.start(); // Start the progress bar
 
+    NProgress.start(); // Start the progress bar
     try {
+      console.log("Starting calibration task");
       const response = await axios.post("/api/py/start_calibration", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
       });
+      console.log("Calibration task started with response:", response.data);
 
       setTaskId(response.data.task_id);
       toast({
