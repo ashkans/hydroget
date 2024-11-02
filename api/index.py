@@ -40,26 +40,9 @@ async def read_content(catg, storms):
     return catg_content, storms_content
 
 
-async def start_calibration_task(
-    catg, 
-    storms, 
-    kc, 
-    m, 
-    initialLoss, 
-    continuousLoss, 
-    background_tasks: BackgroundTasks
-):
-        # Read the content of the uploaded file
- 
-    
-
-
-
-    
-    return task_id
 
 @app.post("/api/py/start_calibration")
-async def calibration(
+def calibration(
     catg: UploadFile|None = None,
     storms: Optional[List[UploadFile]] = File(None),
     kc: float = Form(...),
@@ -81,7 +64,7 @@ async def calibration(
 
   
 
-    catg_content, storms_content = await read_content(catg, storms)
+    catg_content, storms_content = asyncio.run(read_content(catg, storms))
     task_id = generate_task_id()
     print(f"Generated task ID: {task_id}")
     CALIBRATION_TASKS[task_id] = {"status": "pending"}
