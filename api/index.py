@@ -8,7 +8,7 @@ import logging
 from datetime import datetime
 
 logging.basicConfig(
-    level=logging.INFO,
+    level=print,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
@@ -21,7 +21,7 @@ app = FastAPI(docs_url="/api/py/docs", openapi_url="/api/py/openapi.json")
 
 @app.get("/api/py/helloFastApi")
 def hello_fast_api():
-    logging.info("Hello endpoint called")
+    print("Hello endpoint called")
     return {"message": "Hello from FastAPI"}
 
 
@@ -37,9 +37,9 @@ async def start_calibration_task(
     background_tasks: BackgroundTasks
 ):
         # Read the content of the uploaded file
-    logging.info(f"Reading catg content at {datetime.now()}")
+    print(f"Reading catg content at {datetime.now()}")
     catg_content = await catg.read() if catg else None
-    logging.info(f"Reading storms content at {datetime.now()}")
+    print(f"Reading storms content at {datetime.now()}")
     storms_content = [await storm.read() for storm in storms]
   
 
@@ -47,7 +47,7 @@ async def start_calibration_task(
     
     storms_content = [storm.decode('ISO-8859-1') for storm in storms_content] if storms_content else []
     task_id = generate_task_id()
-    logging.info(f"Generated task ID: {task_id}")
+    print(f"Generated task ID: {task_id}")
     CALIBRATION_TASKS[task_id] = {"status": "pending"}
     background_tasks.add_task(calibrate_kc, catg_content, storms_content, kc, m, initialLoss, continuousLoss, task_id=task_id)
     return task_id
@@ -90,13 +90,13 @@ async def calibration(
 
 @app.get("/api/py/get_calibration_status/{task_id}")
 def get_calibration_status(task_id: str):
-    logging.info(f"Checking calibration status for task: {task_id}")
-    logging.info(f"Available tasks: {list(CALIBRATION_TASKS.keys())}")
+    print(f"Checking calibration status for task: {task_id}")
+    print(f"Available tasks: {list(CALIBRATION_TASKS.keys())}")
     
     if task_id not in CALIBRATION_TASKS:
         logging.warning(f"Task ID {task_id} not found")
         return JSONResponse(content={"message": "Task ID not found", "task_id": task_id}, status_code=404)
     else:
         result = CALIBRATION_TASKS.get(task_id)
-        logging.info(f"Retrieved status for task {task_id}: {result}")
+        print(f"Retrieved status for task {task_id}: {result}")
         return JSONResponse(content={"message": "Calibration status", "task_id": task_id, 'result': result})

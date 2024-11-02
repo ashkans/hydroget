@@ -145,7 +145,7 @@ export function KcCalibrationMain() {
 
     NProgress.start(); // Start the progress bar
     try {
-      console.log("Starting calibration task");
+      console.log("Starting calibration task", formData);
       const response = await axios.post("/api/py/start_calibration", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
