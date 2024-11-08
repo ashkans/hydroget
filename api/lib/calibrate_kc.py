@@ -7,8 +7,15 @@ load_dotenv()
 # Import the calibration_tasks dictionary
 from api.lib.db import CALIBRATION_TASKS
 
+def arange(start, stop, step):
+    current = start
+    result = []
+    while current <= stop:
+        result.append(current)
+        current += step
+    return result
 
-def calibrate_kc(catg_data, storms_data, kc, m, initial_loss, continuous_loss, task_id):
+def calibrate_kc(catg_data, storms_data, kc_min, kc_max, kc_step, m, initial_loss, continuous_loss, task_id):
     '''
     Calibrates the kc value based on provided data and updates the CALIBRATION_TASKS dictionary.
 
@@ -32,9 +39,9 @@ def calibrate_kc(catg_data, storms_data, kc, m, initial_loss, continuous_loss, t
     catg_data = catg_data.decode('ISO-8859-1') if catg_data else None
     
     storms_data = [storm.decode('ISO-8859-1') for storm in storms_data] if storms_data else []
-
+    kc_list = arange(kc_min, kc_max, kc_step)
     try:
-        kc_q_mapping = kc_calibration.kc_calibration(catg_data, storms_data, [0.8,1,1.2,1.4,2], m, initial_loss, continuous_loss)
+        kc_q_mapping = kc_calibration.kc_calibration(catg_data, storms_data, kc_list, m, initial_loss, continuous_loss)
 
         # Update the calibration_tasks dictionary with the results
         CALIBRATION_TASKS[task_id] = {

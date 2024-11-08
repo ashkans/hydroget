@@ -45,7 +45,7 @@ export function FileUploadField({ form }: FileUploadFieldProps) {
               <FormDescription>
                 {catgFileName
                   ? `Selected file: ${catgFileName}`
-                  : "Upload a zip file containing your catg and stm files."}
+                  : "Upload a catg file."}
               </FormDescription>
               <FormMessage />
             </FormItem>
@@ -81,7 +81,7 @@ export function FileUploadField({ form }: FileUploadFieldProps) {
               <FormDescription>
                 {stormsFileName
                   ? `Selected file: ${stormsFileName}`
-                  : "Upload a zip file containing your catg and stm files."}
+                  : "Upload storm files produced by RORB ensemble."}
               </FormDescription>
               <FormMessage />
             </FormItem>

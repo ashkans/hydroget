@@ -11,7 +11,9 @@ import {
 import { Input } from "@/components/ui/input";
 
 export const ParameterSchema = z.object({
-  kc: z.number().default(1),
+  kcMin: z.number().default(0.8),
+  kcMax: z.number().default(2),
+  kcStep: z.number().default(0.2),
   m: z.number().default(0.8),
   initialLoss: z.number().default(5),
   continuousLoss: z.number().default(0.5),
@@ -25,22 +27,65 @@ interface ParameterInputsProps {
 
 export function ParameterInputs({ form }: ParameterInputsProps) {
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-3 gap-4">
       <FormField
         control={form.control}
-        name="kc"
+        name="kcMin"
         render={({ field }) => (
           <FormItem>
-            <FormLabel>kc</FormLabel>
+            <FormLabel>Kc Min</FormLabel>
             <FormControl>
               <Input
                 type="number"
                 {...field}
                 onChange={(e) => field.onChange(parseFloat(e.target.value))}
                 className="w-full"
+                step={0.1}
+                min={0.1}
               />
             </FormControl>
-            <FormDescription className="text-xs">Default: 1</FormDescription>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="kcMax"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Kc Max</FormLabel>
+            <FormControl>
+              <Input
+                type="number"
+                {...field}
+                onChange={(e) => field.onChange(parseFloat(e.target.value))}
+                className="w-full"
+                step={0.1}
+                min={0.1}
+              />
+            </FormControl>
+
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+      <FormField
+        control={form.control}
+        name="kcStep"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>Kc Step</FormLabel>
+            <FormControl>
+              <Input
+                type="number"
+                {...field}
+                onChange={(e) => field.onChange(parseFloat(e.target.value))}
+                className="w-full"
+                step={0.05}
+                min={0.01}
+              />
+            </FormControl>
+
             <FormMessage />
           </FormItem>
         )}
@@ -59,7 +104,6 @@ export function ParameterInputs({ form }: ParameterInputsProps) {
                 className="w-full"
               />
             </FormControl>
-            <FormDescription className="text-xs">Default: 0.8</FormDescription>
             <FormMessage />
           </FormItem>
         )}
@@ -78,7 +122,6 @@ export function ParameterInputs({ form }: ParameterInputsProps) {
                 className="w-full"
               />
             </FormControl>
-            <FormDescription className="text-xs">Default: 5</FormDescription>
             <FormMessage />
           </FormItem>
         )}
@@ -97,7 +140,6 @@ export function ParameterInputs({ form }: ParameterInputsProps) {
                 className="w-full"
               />
             </FormControl>
-            <FormDescription className="text-xs">Default: 0.5</FormDescription>
             <FormMessage />
           </FormItem>
         )}

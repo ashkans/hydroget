@@ -28,17 +28,22 @@ const FormSchema = z
   })
   .merge(ParameterSchema);
 
+const MAX_SIMULATIONS = 1000; // Make this configurable by moving it to a constant
+
 export function KcCalibrationMain() {
   const [responseData, setResponseData] = useState<string | null>(null);
   const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
   const [rawResponseData, setRawResponseData] = useState<any>(null);
   const [taskId, setTaskId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [totalSimulations, setTotalSimulations] = useState(0);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
     defaultValues: {
-      kc: 1,
+      kcMin: 0.8,
+      kcMax: 2,
+      kcStep: 0.2,
       m: 0.8,
       initialLoss: 5,
       continuousLoss: 0.5,
@@ -48,9 +53,49 @@ export function KcCalibrationMain() {
   useEffect(() => {
     const hasCatgFile = !!form.watch("catg");
     const hasStormFiles = (form.watch("storms") || []).length > 0;
+    const stormFiles = form.watch("storms") || [];
+    const kcMin = form.watch("kcMin");
+    const kcMax = form.watch("kcMax");
+    const kcStep = form.watch("kcStep");
 
-    setIsSubmitEnabled(hasCatgFile && hasStormFiles);
-  }, [form.watch("catg"), form.watch("storms")]);
+    // Check if kcMin is greater than or equal to kcMax
+    if (kcMin >= kcMax) {
+      setIsSubmitEnabled(false);
+      form.setError("kcMin", {
+        message: "Kc Min must be less than Kc Max",
+      });
+      form.setError("kcMax", {
+        message: "Kc Max must be greater than Kc Min",
+      });
+      return;
+    } else {
+      form.clearErrors("kcMin");
+      form.clearErrors("kcMax");
+    }
+
+    const numKcValues = Math.ceil((kcMax - kcMin) / kcStep);
+    const calculatedSimulations = numKcValues * stormFiles.length;
+    setTotalSimulations(calculatedSimulations);
+
+    if (calculatedSimulations > MAX_SIMULATIONS) {
+      setIsSubmitEnabled(false);
+      console.log("Too many simulations", calculatedSimulations);
+      toast({
+        title: "Warning",
+        description: `Too many simulations (${calculatedSimulations}). Maximum allowed is ${MAX_SIMULATIONS}. Please reduce the number of storm files or adjust Kc parameters.`,
+        variant: "destructive",
+        duration: 5000,
+      });
+    } else {
+      setIsSubmitEnabled(hasCatgFile && hasStormFiles);
+    }
+  }, [
+    form.watch("catg"),
+    form.watch("storms"),
+    form.watch("kcMin"),
+    form.watch("kcMax"),
+    form.watch("kcStep"),
+  ]);
 
   useEffect(() => {
     let intervalId: NodeJS.Timeout;
@@ -126,6 +171,17 @@ export function KcCalibrationMain() {
   }
 
   async function onSubmit(data: z.infer<typeof FormSchema>) {
+    // Check if kcMin is greater than or equal to kcMax before submitting
+    if (data.kcMin >= data.kcMax) {
+      toast({
+        title: "Error",
+        description: "Kc Min must be smaller than Kc Max",
+        variant: "destructive",
+        duration: 3000,
+      });
+      return;
+    }
+
     setIsSubmitEnabled(false);
     setIsLoading(true);
     const formData = new FormData();
@@ -138,7 +194,9 @@ export function KcCalibrationMain() {
       });
     }
 
-    formData.append("kc", data.kc.toString());
+    formData.append("kcMin", data.kcMin.toString());
+    formData.append("kcMax", data.kcMax.toString());
+    formData.append("kcStep", data.kcStep.toString());
     formData.append("m", data.m.toString());
     formData.append("initialLoss", data.initialLoss.toString());
     formData.append("continuousLoss", data.continuousLoss.toString());
@@ -187,6 +245,18 @@ export function KcCalibrationMain() {
         >
           {isLoading ? "Processing..." : "Submit"}
         </Button>
+        {totalSimulations > MAX_SIMULATIONS && (
+          <p className="text-sm text-red-500 mt-2">
+            Total simulations ({totalSimulations}) exceeds maximum limit of{" "}
+            {MAX_SIMULATIONS}. Please reduce storm files or adjust Kc
+            parameters.
+          </p>
+        )}
+        {totalSimulations <= MAX_SIMULATIONS && totalSimulations > 0 && (
+          <p className="text-sm text-black mt-2">
+            Number of simulations: {totalSimulations} (max {MAX_SIMULATIONS})
+          </p>
+        )}
       </FormContainer>
 
       {responseData && <DownloadButton rawResponseData={responseData} />}

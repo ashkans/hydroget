@@ -39,34 +39,32 @@ async def read_content(catg, storms):
     
     return catg_content, storms_content
 
-async def run_calibration(catg_content, storms_content, kc, m, initialLoss, continuousLoss, task_id):
-    await asyncio.to_thread(calibrate_kc, catg_content, storms_content, kc, m, initialLoss, continuousLoss, task_id)
+
 
 @app.post("/api/py/start_calibration")
-async def calibration(
+def calibration(
     catg: UploadFile|None = None,
     storms: Optional[List[UploadFile]] = File(None),
-    kc: float = Form(...),
+    kcMin: float = Form(...),
+    kcMax: float = Form(...),
+    kcStep: float = Form(...),
     m: float = Form(...),
     initialLoss: float = Form(...),
     continuousLoss: float = Form(...),
+    background_tasks: BackgroundTasks = BackgroundTasks()
 ):
-    parameters = {
-        "kc": kc,
-        "m": m,
-        "initialLoss": initialLoss,
-        "continuousLoss": continuousLoss
-    }
+    
 
-    catg_content, storms_content = await read_content(catg, storms)
+  
+
+    catg_content, storms_content = asyncio.run(read_content(catg, storms))
     task_id = generate_task_id()
     print(f"Generated task ID: {task_id}")
     CALIBRATION_TASKS[task_id] = {"status": "pending"}
 
     time = datetime.now()
     
-    # Create async task instead of using background_tasks
-    asyncio.create_task(run_calibration(catg_content, storms_content, kc, m, initialLoss, continuousLoss, task_id))
+    background_tasks.add_task(calibrate_kc, catg_content, storms_content, kcMin, kcMax, kcStep, m, initialLoss, continuousLoss, task_id=task_id)
     return JSONResponse(content={"message": "Calibration started", "task_id": task_id, "time": str(datetime.now())})
 
 
