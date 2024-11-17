@@ -3,5 +3,5 @@ uvicorn[standard]==0.30.6
 python-multipart==0.0.12
 git+https://github.com/ashkans/pyrorb.git@main
 pyjwt[crypto]==2.9.0
-psycopg2-binary==2.9.2
+psycopg2==2.9.2
 python-dotenv==1.0.1
