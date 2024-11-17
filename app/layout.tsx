@@ -10,6 +10,7 @@ import {
 import SignInPage from "@/components/main/SignInPage";
 import AuthButtons from "@/components/main/AuthButtons";
 import NavigationMenuComponent from "@/components/main/NavigationComponent";
+import { Analytics } from "@vercel/analytics/react";
 
 import "./globals.css";
 
@@ -43,6 +44,7 @@ export default function RootLayout({
           <SignedOut>
             <SignInPage />
           </SignedOut>
+          <Analytics />
         </body>
       </html>
     </ClerkProvider>
