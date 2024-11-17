@@ -18,7 +18,11 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "HydroGet",
-  description: "HydroGet! A tool for doing hydrological modeling easily.",
+  description:
+    "HydroGet! A comprehensive web platform for hydrological modeling, analysis and simulation. Streamline your workflow with powerful tools for catchment analysis and flood modeling.",
+  openGraph: {
+    images: ["/og-image.jpg"],
+  },
 };
 
 export default function RootLayout({
