@@ -29,7 +29,7 @@ const FormSchema = z
   })
   .merge(ParameterSchema);
 
-const MAX_SIMULATIONS = 1000; // Make this configurable by moving it to a constant
+const MAX_SIMULATIONS = 300; // Make this configurable by moving it to a constant
 
 export function KcCalibrationMain() {
   const { getToken } = useAuth();
