@@ -81,7 +81,7 @@ export function ParameterInputs({ form }: ParameterInputsProps) {
                 {...field}
                 onChange={(e) => field.onChange(parseFloat(e.target.value))}
                 className="w-full"
-                step={0.05}
+                step={0.01}
                 min={0.01}
               />
             </FormControl>

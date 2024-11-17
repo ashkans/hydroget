@@ -15,6 +15,7 @@ import { ResponseDisplay } from "./ResponseDisplay";
 import { FileUploadField } from "./FileUploadField";
 import { FormContainer } from "./FormContainer";
 import DownloadButton from "./DownloadButton"; // Import the new DownloadButton component
+import { useAuth } from "@clerk/nextjs";
 
 // Use custom file validation since File is not available during SSR
 const isFile = (value: any): value is File => {
@@ -31,12 +32,14 @@ const FormSchema = z
 const MAX_SIMULATIONS = 1000; // Make this configurable by moving it to a constant
 
 export function KcCalibrationMain() {
+  const { getToken } = useAuth();
   const [responseData, setResponseData] = useState<string | null>(null);
   const [isSubmitEnabled, setIsSubmitEnabled] = useState(false);
   const [rawResponseData, setRawResponseData] = useState<any>(null);
   const [taskId, setTaskId] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [totalSimulations, setTotalSimulations] = useState(0);
+  const [kcValues, setKcValues] = useState<number[]>([]);
 
   const form = useForm<z.infer<typeof FormSchema>>({
     resolver: zodResolver(FormSchema),
@@ -73,9 +76,16 @@ export function KcCalibrationMain() {
       form.clearErrors("kcMax");
     }
 
-    const numKcValues = Math.ceil((kcMax - kcMin) / kcStep);
+    const numKcValues = Math.ceil((kcMax - kcMin) / kcStep) + 1;
     const calculatedSimulations = numKcValues * stormFiles.length;
     setTotalSimulations(calculatedSimulations);
+
+    // Calculate Kc values
+    const kcs: number[] = [];
+    for (let kc = kcMin; kc <= kcMax; kc += kcStep) {
+      kcs.push(Number(kc.toFixed(3)));
+    }
+    setKcValues(kcs);
 
     if (calculatedSimulations > MAX_SIMULATIONS) {
       setIsSubmitEnabled(false);
@@ -181,7 +191,8 @@ export function KcCalibrationMain() {
       });
       return;
     }
-
+    // set responseData to null
+    setResponseData(null);
     setIsSubmitEnabled(false);
     setIsLoading(true);
     const formData = new FormData();
@@ -204,9 +215,12 @@ export function KcCalibrationMain() {
     NProgress.start(); // Start the progress bar
     try {
       console.log("Starting calibration task", formData);
+      const token = await getToken();
+
       const response = await axios.post("/api/py/start_calibration", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
+          Authorization: `Bearer ${token}`,
         },
       });
       console.log("Calibration task started with response:", response.data);
@@ -257,11 +271,16 @@ export function KcCalibrationMain() {
             Number of simulations: {totalSimulations} (max {MAX_SIMULATIONS})
           </p>
         )}
+        {kcValues.length > 0 && (
+          <div className="mt-4">
+            <p className="text-sm font-medium">Kc values to be tested:</p>
+            <p className="text-sm text-gray-600">{kcValues.join(", ")}</p>
+          </div>
+        )}
       </FormContainer>
 
-      {responseData && <DownloadButton rawResponseData={responseData} />}
-
       <ResponseDisplay responseData={responseData} />
+      {responseData && <DownloadButton rawResponseData={responseData} />}
     </div>
   );
 }

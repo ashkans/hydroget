@@ -81,13 +81,15 @@ export function ResponseDisplay({ responseData }: ResponseDisplayProps) {
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis
             dataKey="kc"
-            label={{ value: "KC", position: "insideBottomRight", offset: -10 }}
+            label={{ value: "KC", position: "insideBottomRight", offset: -5 }}
+            tickFormatter={(value) => value.toFixed(2)}
           />
           <YAxis
             label={{
-              value: "Q Median One Up",
+              value: "Median Peak Flow",
               angle: -90,
               position: "insideLeft",
+              offset: 20,
             }}
           />
           <Tooltip

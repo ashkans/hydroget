@@ -1,20 +1,19 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuIndicator,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  NavigationMenuViewport,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import Link from "next/link";
-const inter = Inter({ subsets: ["latin"] });
+  ClerkProvider,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  UserProfile,
+} from "@clerk/nextjs";
+import SignInPage from "@/components/main/SignInPage";
+import AuthButtons from "@/components/main/AuthButtons";
+import NavigationMenuComponent from "@/components/main/NavigationComponent";
 
-const NEXT_PUBLIC_SHOW_API_DOCS = false;
+import "./globals.css";
+
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -27,56 +26,25 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <header className="bg-white shadow-sm  bg-blue-100">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <NavigationMenu className="py-4">
-              <NavigationMenuList className="flex space-x-4">
-                <NavigationMenuItem>
-                  <Link href="/" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={
-                        navigationMenuTriggerStyle() +
-                        " text-gray-700 hover:text-gray-900"
-                      }
-                    >
-                      Home
-                    </NavigationMenuLink>
-                  </Link>
-                  <Link href="/kcCalibration" legacyBehavior passHref>
-                    <NavigationMenuLink
-                      className={
-                        navigationMenuTriggerStyle() +
-                        " text-gray-700 hover:text-gray-900"
-                      }
-                    >
-                      Kc Calibration
-                    </NavigationMenuLink>
-                  </Link>
-                  {NEXT_PUBLIC_SHOW_API_DOCS && (
-                    <Link href="/api/py/docs" legacyBehavior passHref>
-                      <NavigationMenuLink
-                        className={
-                          navigationMenuTriggerStyle() +
-                          " text-gray-700 hover:text-gray-900"
-                        }
-                      >
-                        API doc
-                      </NavigationMenuLink>
-                    </Link>
-                  )}
-                </NavigationMenuItem>
-                {/* Add more menu items here */}
-              </NavigationMenuList>
-            </NavigationMenu>
-          </div>
-        </header>
-
-        <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
-          {children}
-        </main>
-      </body>
-    </html>
+    <ClerkProvider>
+      <html lang="en">
+        <body className={inter.className}>
+          <SignedIn>
+            <header className="bg-white shadow-sm  bg-blue-100">
+              <div className="flex justify-between max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <NavigationMenuComponent />
+                <AuthButtons />
+              </div>
+            </header>
+            <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+              {children}
+            </main>
+          </SignedIn>
+          <SignedOut>
+            <SignInPage />
+          </SignedOut>
+        </body>
+      </html>
+    </ClerkProvider>
   );
 }
